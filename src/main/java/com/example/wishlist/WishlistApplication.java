@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class WishlistApplication {
-//comment
+//comment 2
     public static void main(String[] args) {
         SpringApplication.run(WishlistApplication.class, args);
     }
