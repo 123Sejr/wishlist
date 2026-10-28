@@ -17,7 +17,7 @@ Planlagte:
 - MySQL
 
 ## ER Model 
-[ER model](diagrams/ERmodel.png)
+![ER model](diagrams/ERmodel.png)
 
 ## Klassediagram
 tbd
