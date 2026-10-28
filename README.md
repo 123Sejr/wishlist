@@ -23,4 +23,4 @@ Planlagte:
 tbd
 
 ## Contributing
-Se [her](contributing.html)
+Se [her](CONTRIBUTING.md)
