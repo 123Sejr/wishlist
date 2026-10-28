@@ -20,7 +20,7 @@ Planlagte:
 ![ER model](diagrams/ERmodel.png)
 
 ## Klassediagram
-tbd
+![Klassediagram](diagrams/klassediagram.png)
 
 ## Contributing
 Se [her](CONTRIBUTING.md)
