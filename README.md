@@ -14,7 +14,13 @@ Planlagte:
 - Spring Boot
 - Thymeleaf
 - JDBCtemplate
-- MySQL 
+- MySQL
+
+## ER Model 
+[ER model](diagrams/ERmodel.png)
+
+## Klassediagram
+tbd
 
 ## Contributing
 Se [her](contributing.html)
