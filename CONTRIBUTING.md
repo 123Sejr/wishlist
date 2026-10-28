@@ -24,7 +24,7 @@ Tak fordi du viser interesse og bidrager til Wishlist projektet.
 - Følg Java naming conventions.
   - **Classes** skrives i PascalCase med et beskrivende og meningsfuldt navn.
   - **Metoder** skrives i camelCase.
-  - **Variabler** benytter snake_case.
+  - **Variabler** skrives i camelCase og holdes kort.
 - Dokumenter koden med kommentarer, der forklarer kodens funktionalitet og logik.
 - Undgå duplikeret kode  
 
