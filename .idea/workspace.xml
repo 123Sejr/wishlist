@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5aa916bd-3100-4b8d-9842-c7a9795cb608" name="Changes" comment="commit unversioned files">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/model/Wishlist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/model/WishlistRowMapper.java" afterDir="false" />
+    <list default="true" id="5aa916bd-3100-4b8d-9842-c7a9795cb608" name="Changes" comment="Oprettet klassen Wishlist med variabler, getters, setters og toString metoder. &#10;Oprettet WishlistRowMapper, mangler blot at indsætte de navne, der skal bruges i SQL-del">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/showWishlists.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/createWishlistForm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/showWishlists.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/controller/WishListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/controller/WishListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/model/Wishlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/model/Wishlist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/model/WishlistRowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/model/WishlistRowMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/repository/WishListRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/repository/WishListRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/service/WishListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/service/WishListService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -52,14 +60,17 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.WishlistApplication.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "feature/wishlistClass&&wishlistRowmapper",
     "kotlin-language-version-configured": "true",
+    "list.type.of.created.stylesheet": "CSS",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",

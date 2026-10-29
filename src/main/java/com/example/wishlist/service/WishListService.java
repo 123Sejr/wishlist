@@ -1,7 +1,10 @@
 package com.example.wishlist.service;
 
+import com.example.wishlist.model.Wishlist;
 import com.example.wishlist.repository.WishListRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class WishListService {
@@ -9,5 +12,14 @@ public class WishListService {
 
     public WishListService(WishListRepository repo) {
         this.repo = repo;
+    }
+
+
+    public List<Wishlist> showAllWishlistByUserId(int id) {
+        return repo.showAllWishlistByUserId(id);
+    }
+
+    public void createWishlist(Wishlist wishlist) {
+        repo.createWishlist(wishlist);
     }
 }

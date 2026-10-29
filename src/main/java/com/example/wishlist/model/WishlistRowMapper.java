@@ -15,9 +15,9 @@ public class WishlistRowMapper implements RowMapper<Wishlist> {
         ArrayList<String> wishes = new ArrayList<>(List.of(wishNames.split(",")));
 
         return new Wishlist(
-              rs.getInt(""),
-              rs.getString(""),
-              rs.getInt(""),
+              rs.getInt("id"),
+              rs.getString("name"),
+              rs.getInt("userId"),
               wishes
         );
 

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <link rel="stylesheet" href="showWishlists.html">
+    <meta charset="UTF-8">
+    <title>Wishlists</title>
+</head>
+<body>
+
+<p>
+    <a class="button" th:href="@{/createWishlist}">Create new wishlist</a>
+</p>
+
+<div class="boxField">
+    <ul>
+        <li th:each="list : ${wishlists}">
+            <div class="box">
+                <p th:text="${list.name}"></p>
+            </div>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

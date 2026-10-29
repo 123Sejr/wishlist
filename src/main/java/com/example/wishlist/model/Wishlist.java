@@ -8,10 +8,12 @@ public class Wishlist {
     private int userId;
     private ArrayList<String> wishes;
 
+    //Tom konstruktør til Spring
     public Wishlist() {
 
     }
 
+    //Konstruktør med alt
     public Wishlist(int id, String name, int userId, ArrayList<String> wishes) {
         this.id = id;
         this.name = name;
