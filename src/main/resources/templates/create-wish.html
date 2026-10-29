@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<form th:action="@{{wishlistId}/create-wish(wishlistID=${wishlistID})}">
+<form method="post" th:action="@{{wishlistId}/create-wish(wishlistID=${wishlistID})}">
+    <p>Du er ved at tilføje et ønske til ønskelisten</p>
+    <label for="wishlistid"></label>
+    <input id="wishlistid" type="number" th:text="${wishlistID}" readonly>
+    <label for="name">Navn:</label>
+    <input id="name" type="text"  readonly/>
+    <br/>
+    <label for="desc">Beskrivelse:</label>
+    <textarea id="desc" rows="5" cols="25"></textarea>
+    <br/>
+
 </form>
 </body>
 </html>
