@@ -18,8 +18,8 @@ public class WishListRepository {
     public List<Wishlist> showAllWishlistByUserId(int userId) {
         String sql = """
                 SELECT id, name, wishes 
-                FROM wishlist
-                WHERE wishlist.userId = ?
+                FROM list
+                WHERE list.userId = ?
                 """;
         return jdbcTemplate.query(sql, new WishlistRowMapper(), userId);
     }
@@ -28,7 +28,7 @@ public class WishListRepository {
 
     public void createWishlist(Wishlist wishlist) {
         String sql = """
-                INSERT INTO wishlist (name, userId)
+                INSERT INTO list (name, userId)
                 VALUES (?, ?)
                 """;
         jdbcTemplate.update(
