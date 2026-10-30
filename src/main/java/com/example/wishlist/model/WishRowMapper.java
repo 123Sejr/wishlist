@@ -12,6 +12,7 @@ public class WishRowMapper implements RowMapper<Wish> {
                 rs.getInt("id"),
                 rs.getString("name"),
                 rs.getString("desc"),
+                rs.getInt("listId"),
                 rs.getFloat("price"),
                 rs.getString("link"),
                 rs.getString("image"),
