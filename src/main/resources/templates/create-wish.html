@@ -7,15 +7,28 @@
 <body>
 <form method="post" th:action="@{{wishlistId}/create-wish(wishlistID=${wishlistID})}">
     <p>Du er ved at tilføje et ønske til ønskelisten</p>
-    <label for="wishlistid"></label>
-    <input id="wishlistid" type="number" th:text="${wishlistID}" readonly>
+    <label for="listId"></label>
+    <input id="listId" type="number" th:text="${wishlistID}" readonly>
     <label for="name">Navn:</label>
     <input id="name" type="text"  readonly/>
     <br/>
     <label for="desc">Beskrivelse:</label>
     <textarea id="desc" rows="5" cols="25"></textarea>
     <br/>
-
+    <label for="price"></label>
+    <input id="price" type="number">
+    <br/>
+    <label for="link"></label>
+    <input id="link" type="url">
+    <br/>
+    <label for="image"></label>
+    <input id="image" type="url">
+    <br/>
+    <label for="isPriority"></label>
+    <input id="isPriority" type="checkbox">
+    <br/>
+    <label for="submit"></label>
+    <input id="submit" type="submit">
 </form>
 </body>
 </html>
