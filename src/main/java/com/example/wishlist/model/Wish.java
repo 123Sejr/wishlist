@@ -4,6 +4,7 @@ public class Wish {
     int id;
     String name;
     String desc;
+    int listId;
     float price;
     String link;
     String image;
@@ -13,10 +14,11 @@ public class Wish {
     public Wish(){}
 
     // Constructor med alt
-    public Wish(int id, String name, String desc, float price, String link, String image, boolean isPriority) {
+    public Wish(int id, String name, String desc, int listId, float price, String link, String image, boolean isPriority) {
         this.id = id;
         this.name = name;
         this.desc = desc;
+        this.listId = listId;
         this.price = price;
         this.link = link;
         this.image = image;
@@ -29,6 +31,14 @@ public class Wish {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getListId(){
+        return listId;
+    }
+
+    public void setListId(int listId){
+        this.listId = listId;
     }
 
     public String getName() {
