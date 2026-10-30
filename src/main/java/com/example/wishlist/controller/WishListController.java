@@ -29,16 +29,21 @@ public class WishListController {
     }
 
 
-
-    @GetMapping("/createWishlist")
-    public String createWishlist(Model model) {
+    //GET-endpoint, der opretter en ny ønskeliste.
+    //Returnerer html-siden "createWishlistForm".
+    @GetMapping("/{userId}/createWishlist")
+    public String createWishlist(@PathVariable int userId, Model model) {
+        model.addAttribute("userId", userId);
         return "createWishlistForm";
     }
 
 
-    @PostMapping
+    //POST-endpointet, der gemmer den nye ønskeliste.
+    //Returnere brugeren tilbage til siden showWishlists, hvor den nye ønskeliste nu kan ses.
+    @PostMapping("/saveWishlist")
     public String saveNewList(@ModelAttribute Wishlist wishlist, Model model) {
         service.createWishlist(wishlist);
+        model.addAttribute("wishlist", wishlist);
         return "redirect:/showWishlists";
     }
 }
