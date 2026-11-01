@@ -17,6 +17,11 @@
         <label>Navn:</label>
         <br />
         <input type="text" name="name" required>
+        <br />
+        <button type="submit">Gem</button>
+        <a th:href="@{/{userId}(userId=${userId})}">
+            <button type="button">Tilbage</button>
+        </a>
     </form>
 </div>
 

@@ -5,6 +5,7 @@ import com.example.wishlist.model.WishlistRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.sql.PreparedStatement;
 import java.util.List;
 
 @Repository
@@ -28,16 +29,17 @@ public class WishListRepository {
 
     public void createWishlist(Wishlist wishlist) {
         String sql = """
-                BEGIN TRANSACTION;
                 INSERT INTO list (name, user_ID)
                 VALUES (?, ?)
-                COMMIT;
                 """;
-        jdbcTemplate.update(
-                sql,
-                wishlist.getName(),
-                wishlist.getUserId()
-        );
+
+        jdbcTemplate.update(connection -> {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, wishlist.getName());
+            ps.setInt(2, wishlist.getUserId());
+
+            return ps;
+        });
 
     }
 }

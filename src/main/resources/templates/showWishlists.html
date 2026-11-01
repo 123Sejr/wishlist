@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org"
 >
 <head>
-    <link rel="stylesheet" href="showWishlists.html">
+    <link rel="stylesheet" th:href="@{/showWishlists.css}">
     <meta charset="UTF-8">
     <title>Wishlists</title> <!--Indsæt brugerens navn i titlen. Tilføj det fra controlleren-->
 </head>
@@ -11,7 +11,7 @@
 
 <div class="container">
     <p>
-        <a class="button" th:href="@{/createWishlist}">Lav ny ønskeliste</a>
+        <a class="button" th:href="@{/{userId}/createWishlist(userId=${userId})}">Lav ny ønskeliste</a>
     </p>
 
     <table>
