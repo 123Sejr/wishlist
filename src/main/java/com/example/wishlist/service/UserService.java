@@ -20,11 +20,9 @@ public class UserService {
         try {
             repo.addUser(user);
         } catch (DataIntegrityViolationException e) {
-            throw new DuplicateIdException("Id eksisterer allerede.", e);
+            throw new DuplicateIdException("Id'et" + user.getId() + "eksisterer allerede.", e);
         } catch (DataAccessException e) {
             throw new DatabaseOperationException("Bruger kunne ikke oprettes.", e);
-
         }
-
     }
 }
