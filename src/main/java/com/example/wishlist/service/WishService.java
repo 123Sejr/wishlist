@@ -41,13 +41,13 @@ public class WishService {
     // regular expression fra https://www.geeksforgeeks.org/dsa/check-if-an-url-is-valid-or-not-using-regular-expression/
     public void validateLink(String link){
         final Pattern URL_PATTERN = Pattern.compile("((http|https)://)(www.)?"
-                + "[a-zA-Z0-9@:%._\\+~#?&//=]"
+                + "[a-zA-Z0-9@:%._+~#?&/=]"
                 + "{2,256}\\.[a-z]"
                 + "{2,6}\\b([-a-zA-Z0-9@:%"
-                + "._\\+~#?&//=]*)");
+                + "._+~#?&/=]*)");
 
         if (!URL_PATTERN.matcher(link).matches()) {
             throw new InvalidInputException("Link kan ikke genkendes.");
         }
-    };
+    }
 }
