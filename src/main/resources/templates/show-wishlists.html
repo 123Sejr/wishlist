@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Wishlists</title> <!--Indsæt brugerens navn i titlen. Tilføj det fra controlleren-->
+</head>
+<body>
+
+<div class="container">
+    <p>
+        <a class="button" th:href="@{/{userId}/createWishlist(userId=${userId})}">Lav ny ønskeliste</a>
+    </p>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Navn</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${#lists.isEmpty(wishlists)}">
+            <td colspan="4">Ingen ønskelister er oprettet</td>
+        </tr>
+        <tr th:each="wishlist : ${wishlists}">
+            <td th:text="${wishlist.id}"></td>
+            <td th:text="${wishlist.name}"></td>
+            <!--<td><a th:href="@{}"> Endpointet der viser ønskerne på den valgte liste
+                <button type="button">Se ønskeliste</button>-->
+            <!--</a></td>
+            <td><a th:href="@{}"> Endpointet der giver lov til at redigere navnet på listen
+                <button type="button">Rediger navn</button>
+            </a></td>-->
+            <!--<td>
+                <form th:action="@{}"
+                    method="post"> Endpointet til slet
+                    <button type="submit">Slet</button>
+                </form>
+            </td>-->
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

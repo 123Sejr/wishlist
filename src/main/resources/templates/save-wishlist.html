@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Ønskeliste gemt</title>
+</head>
+<body>
+
+<div class="confirmation-box" align="center">
+    <h2>Ønskelisten er nu gemt</h2>
+    <a th:href="@{/{userId}(userId=${user_id})}">
+        <button type="button">Tilbage til oversigt</button>
+    </a>
+</div>
+
+</body>
+</html>
