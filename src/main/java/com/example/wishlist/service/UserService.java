@@ -1,5 +1,6 @@
 package com.example.wishlist.service;
 
+import com.example.wishlist.model.User;
 import com.example.wishlist.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
@@ -9,5 +10,9 @@ public class UserService {
 
     public UserService(UserRepository repo) {
         this.repo = repo;
+    }
+
+    public void addUser(User user) {
+        repo.addUser(user);
     }
 }
