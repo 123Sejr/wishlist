@@ -12,7 +12,7 @@
     <h1>Ny ønskeliste</h1>
     <form
         method="post"
-        th:action="@{/saveWishlist}"
+        th:action="@{/{userId}/saveWishlist(userId=${userId})}"
     >
         <label>Navn:</label>
         <br />

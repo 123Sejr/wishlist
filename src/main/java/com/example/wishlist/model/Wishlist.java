@@ -14,10 +14,10 @@ public class Wishlist {
     }
 
     //Konstruktør med alt
-    public Wishlist(int id, String name, int userId/*, ArrayList<String> wishes*/) {
+    public Wishlist(int id, String name, int user_id/*, ArrayList<String> wishes*/) {
         this.id = id;
         this.name = name;
-        this.user_id = userId;
+        this.user_id = user_id;
         //this.wishes = wishes;
     }
 
