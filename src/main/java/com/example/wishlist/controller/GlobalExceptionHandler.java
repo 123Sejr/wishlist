@@ -28,12 +28,4 @@ public class GlobalExceptionHandler {
         model.addAttribute("message", e.getMessage());
         return "error/404";
     }
-
-
-
-
-    //user not found
-    //wishlist not found
-    //wish not found
-
 }
