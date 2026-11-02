@@ -10,15 +10,15 @@ import java.util.List;
 public class WishlistRowMapper implements RowMapper<Wishlist> {
     @Override
     public Wishlist mapRow(ResultSet rs, int rowNum) throws SQLException {
-        String wishNames = rs.getString("wish_names");
+        //String wishNames = rs.getString("wish_names");
 
-        ArrayList<String> wishes = new ArrayList<>(List.of(wishNames.split(",")));
+        //ArrayList<String> wishes = new ArrayList<>(List.of(wishNames.split(",")));
 
         return new Wishlist(
               rs.getInt("id"),
               rs.getString("name"),
-              rs.getInt("userId"),
-              wishes
+              rs.getInt("userId")
+              /*wishes*/
         );
 
     }

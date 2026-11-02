@@ -21,6 +21,7 @@ public class WishListRepository {
                 SELECT id, name
                 FROM list
                 WHERE list.user_ID = ?
+                ORDER BY id
                 """;
         return jdbcTemplate.query(sql, new WishlistRowMapper(), userId);
     }
