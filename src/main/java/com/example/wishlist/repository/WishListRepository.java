@@ -18,12 +18,12 @@ public class WishListRepository {
 
     public List<Wishlist> showAllWishlistByUserId(int userId) {
         String sql = """
-                SELECT id, name
+                SELECT id, name, user_ID
                 FROM list
                 WHERE user_id = ?
                 ORDER BY id
                 """;
-        return jdbcTemplate.queryForObject(sql, List.class, new WishlistRowMapper(), userId);
+        return jdbcTemplate.query(sql, new WishlistRowMapper(), userId);
     }
 
 

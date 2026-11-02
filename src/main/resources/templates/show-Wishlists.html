@@ -28,18 +28,18 @@
         <tr th:each="wishlist : ${wishlists}">
             <td th:text="${wishlist.id}"></td>
             <td th:text="${wishlist.name}"></td>
-            <td><a th:href="@{}"> <!--Endpointet der viser ønskerne på den valgte liste-->
-                <button type="button">Se ønskeliste</button>
-            </a></td>
-            <td><a th:href="@{}"> <!--Endpointet der giver lov til at redigere navnet på listen-->
+            <!--<td><a th:href="@{}"> Endpointet der viser ønskerne på den valgte liste
+                <button type="button">Se ønskeliste</button>-->
+            <!--</a></td>
+            <td><a th:href="@{}"> Endpointet der giver lov til at redigere navnet på listen
                 <button type="button">Rediger navn</button>
-            </a></td>
-            <td>
+            </a></td>-->
+            <!--<td>
                 <form th:action="@{}"
-                    method="post"> <!--Endpointet til slet-->
+                    method="post"> Endpointet til slet
                     <button type="submit">Slet</button>
                 </form>
-            </td>
+            </td>-->
         </tr>
         </tbody>
     </table>
