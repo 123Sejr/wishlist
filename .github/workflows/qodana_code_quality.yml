@@ -5,7 +5,7 @@ on:
   push:
     branches: # Specify your branches here
       - production # The 'main' branch
-      - 'develop/*' # The release branches
+      - develop # The release branches
 
 jobs:
   qodana:
