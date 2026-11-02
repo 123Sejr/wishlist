@@ -29,12 +29,15 @@
 </body>
 <p>Vælg en bruger fra listen</p>
 <br>
-<select name="userId">
-    <option th:each="user : ${users}"
-            th:value="${user.id}"
-            th:text="${user.name}">
-    </option>
-</select>
+<form action="/show-wishlists" method="get">
+    <select name="userId">
+        <option th:each="user : ${users}"
+                th:value="${user.id}"
+                th:text="${user.name}">
+        </option>
+    </select>
+    <button type="submit">Vis lister</button>
+</form>
 <br>
 <p>Eller opret en ny bruger:</p>
 <br>
