@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Wishlist {
     private int id;
     private String name;
-    private int userId;
+    private int user_id;
     private ArrayList<String> wishes;
 
     //Tom konstruktør til Spring
@@ -17,7 +17,7 @@ public class Wishlist {
     public Wishlist(int id, String name, int userId/*, ArrayList<String> wishes*/) {
         this.id = id;
         this.name = name;
-        this.userId = userId;
+        this.user_id = userId;
         //this.wishes = wishes;
     }
 
@@ -37,12 +37,12 @@ public class Wishlist {
         this.name = name;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
     public ArrayList<String> getWishes() {
@@ -58,7 +58,7 @@ public class Wishlist {
         return "Wishlist: " +
                 "id = " + id +
                 ", name = " + name +
-                ", userId = " + userId +
+                ", userId = " + user_id +
                 ", wishes = " + wishes;
     }
 }

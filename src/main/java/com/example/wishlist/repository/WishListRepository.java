@@ -20,10 +20,10 @@ public class WishListRepository {
         String sql = """
                 SELECT id, name
                 FROM list
-                WHERE list.user_ID = ?
+                WHERE user_id = ?
                 ORDER BY id
                 """;
-        return jdbcTemplate.query(sql, new WishlistRowMapper(), userId);
+        return jdbcTemplate.queryForObject(sql, List.class, new WishlistRowMapper(), userId);
     }
 
 
@@ -37,7 +37,7 @@ public class WishListRepository {
         jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, wishlist.getName());
-            ps.setInt(2, wishlist.getUserId());
+            ps.setInt(2, wishlist.getUser_id());
 
             return ps;
         });

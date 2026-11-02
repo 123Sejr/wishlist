@@ -17,7 +17,7 @@ public class WishlistRowMapper implements RowMapper<Wishlist> {
         return new Wishlist(
               rs.getInt("id"),
               rs.getString("name"),
-              rs.getInt("userId")
+              rs.getInt("user_id")
               /*wishes*/
         );
 

@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS list
 (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    user_ID INT, FOREIGN KEY(user_id)
+    user_id INT, FOREIGN KEY(user_id)
         REFERENCES user (id)
 );
 

@@ -25,7 +25,7 @@ public class WishListController {
     public String showAllLists(@PathVariable int userId, Model model) {
         List<Wishlist> wishlists = service.showAllWishlistByUserId(userId);
         model.addAttribute("wishlists", wishlists);
-        return "showWishlists";
+        return "show-Wishlists";
     }
 
 
@@ -34,16 +34,17 @@ public class WishListController {
     @GetMapping("/{userId}/createWishlist")
     public String createWishlist(@PathVariable int userId, Model model) {
         model.addAttribute("userId", userId);
-        return "createWishlistForm";
+        return "create-Wishlist-Form";
     }
 
 
     //POST-endpointet, der gemmer den nye ønskeliste.
     //Returnere brugeren tilbage til siden showWishlists, hvor den nye ønskeliste nu kan ses.
-    @PostMapping("/saveWishlist")
-    public String saveNewList(@ModelAttribute Wishlist wishlist, Model model) {
+    @PostMapping("/{userId}/saveWishlist")
+    public String saveNewList(@PathVariable int userId, @ModelAttribute Wishlist wishlist, Model model) {
         service.createWishlist(wishlist);
         model.addAttribute("wishlist", wishlist);
+        model.addAttribute("userId", userId);
         return "redirect:/showWishlists";
     }
 }
