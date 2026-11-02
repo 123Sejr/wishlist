@@ -27,7 +27,7 @@ public class WishService {
         } catch (DataIntegrityViolationException e) {
             throw new DuplicateIdException("Id eksisterer allerede.", e);
         } catch (DataAccessException e){
-            throw new DatabaseOperationException("Profil kunne ikke oprettes.", e);
+            throw new DatabaseOperationException("Ønske kunne ikke oprettes.", e);
 
         }
     }
