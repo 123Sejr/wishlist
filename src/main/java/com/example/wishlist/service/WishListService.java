@@ -19,7 +19,7 @@ public class WishListService {
         return repo.showAllWishlistByUserId(id);
     }
 
-    public void createWishlist(Wishlist wishlist) {
-        repo.createWishlist(wishlist);
+    public void createWishlist(Wishlist wishlist, int user_id) {
+        repo.createWishlist(wishlist, user_id);
     }
 }

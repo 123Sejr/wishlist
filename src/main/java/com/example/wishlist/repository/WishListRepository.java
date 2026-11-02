@@ -28,16 +28,17 @@ public class WishListRepository {
 
 
 
-    public void createWishlist(Wishlist wishlist) {
+    public void createWishlist(Wishlist wishlist, int user_id) {
         String sql = """
-                INSERT INTO list (name, user_ID)
+                INSERT INTO list (name, user_id)
                 VALUES (?, ?)
                 """;
 
         jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, wishlist.getName());
-            ps.setInt(2, wishlist.getUser_id());
+            ps.setInt(2, user_id);
+            //Mangler at skabe en forbindelse til User-klassens id
 
             return ps;
         });
