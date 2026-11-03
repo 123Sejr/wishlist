@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+}
+
+p, h1, table {
+    font-family: "Poppins", sans-serif;
+    color: indigo;
+}
+
+h1 {
+    color: darkmagenta;
+    font-size: 28px;
+}
+
+input {
+    padding: 8px;
+    border: 1px solid indigo;
+}
+
+button {
+    padding: 8px;
+    border: 1px solid indigo;
+}
+
+.form-button {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: lightcyan;
+    border: 1px solid indigo;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown {
+    color: indigo;
+    background-color: lightcyan;
+    border: 1px solid indigo;
+}

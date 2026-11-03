@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/common.css}">
@@ -11,12 +11,14 @@
 <p>Vælg en bruger fra listen</p>
 <br>
 <form action="/show-wishlists" method="get">
-    <select name="userId">
-        <option th:each="user : ${users}"
-                th:value="${user.id}"
-                th:text="${user.name}">
-        </option>
-    </select>
+    <label for="dropdown">
+        <select id="dropdown" class="dropdown" name="userId">
+            <option th:each="user : ${users}"
+                    th:value="${user.id}"
+                    th:text="${user.name}">
+            </option>
+        </select>
+    </label>
     <button type="submit">Vis lister</button>
 </form>
 <br>
