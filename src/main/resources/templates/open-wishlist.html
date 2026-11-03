@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wishlist's wishes</title>
+</head>
+<body>
+
+<div class="container">
+
+    <a th:href="@{/{wishlistId}/create-wish(wishlistId=${wishlistId})}">
+        <button type="button">Opret nyt ønske</button>
+    </a>
+
+    <!--<a th:href="@{/{userId}/show-wishlists(userId=${userId})}">
+        <button type="button">Tilbage</button>
+    </a>-->
+
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Navn</th>
+            <th>Beskrivelse</th>
+            <th>Pris</th>
+            <th>Link</th>
+            <th>Billede</th>
+            <th>Er ønsket prioriteret?</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${#lists.isEmpty(wishes)}">
+            <td colspan="4">Ingen ønsker er oprettet</td>
+        </tr>
+        <tr th:each="wish : ${wishes}">
+            <td th:text="${wish.id}"></td>
+            <td th:text="${wish.name}"></td>
+            <td th:text="${wish.desc}"></td>
+            <td th:text="${wish.price}"></td>
+            <td th:text="${wish.link}"></td>
+            <td th:text="${wish.image}"></td>
+            <td th:text="${wish.isPriority}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
