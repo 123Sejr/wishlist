@@ -8,7 +8,7 @@
 <form method="post" th:action="@{{wishlistId}/create-wish(wishlistID=${wishlistID})}">
     <p>Du er ved at tilføje et ønske til ønskelisten</p>
     <label for="listId"></label>
-    <input id="listId" type="number" th:text="${wishlistID}" readonly>
+    <input id="listId" type="number" th:text="${wishlistID}" hidden>
     <label for="name">Navn:</label>
     <input id="name" type="text"  readonly/>
     <br/>

@@ -1,0 +1,27 @@
+h1 {
+    color: darkmagenta;
+    font-size: 28px;
+}
+body {
+    background-color: lightgray;
+    font-family: "Noto Sans", sans-serif;
+}
+
+input {
+    padding: 8px;
+    border: 1px solid gray;
+}
+
+button {
+    padding: 8px;
+    border: 1px solid gray;
+}
+
+.form-button {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: lightblue;
+    border: 1px solid gray;
+    text-decoration: none;
+    color: black;
+}
