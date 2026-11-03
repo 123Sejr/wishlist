@@ -1,6 +1,7 @@
 package com.example.wishlist.controller;
 
 import com.example.wishlist.model.Wishlist;
+import com.example.wishlist.service.UserService;
 import com.example.wishlist.service.WishListService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,7 @@ public class WishListController {
     public String showAllLists(@RequestParam int userId, Model model) {
         List<Wishlist> wishlists = service.showAllWishlistByUserId(userId);
         model.addAttribute("wishlists", wishlists);
+        model.addAttribute("userId", userId);
         return "show-wishlists";
     }
 
@@ -30,6 +32,7 @@ public class WishListController {
     //Returnerer html-siden "createWishlistForm".
     @GetMapping("/{userId}/createWishlist")
     public String createWishlist(@PathVariable int userId, Model model) {
+        //@RequestParam(value = "back-button") int userId
         model.addAttribute("userId", userId);
         return "create-wishlist-form";
     }
@@ -37,11 +40,11 @@ public class WishListController {
 
     //POST-endpointet, der gemmer den nye ønskeliste.
     //Returnere brugeren tilbage til siden showWishlists, hvor den nye ønskeliste nu kan ses.
-    @PostMapping("/{user_id}/saveWishlist")
-    public String saveNewList(@PathVariable int user_id, @ModelAttribute Wishlist wishlist, Model model) {
+    @PostMapping("/{userId}/saveWishlist")
+    public String saveNewList(@PathVariable int userId, @ModelAttribute Wishlist wishlist, Model model) {
         model.addAttribute("wishlist", wishlist);
-        model.addAttribute("user_id", user_id);
-        service.createWishlist(wishlist, user_id);
+        model.addAttribute("userId", userId);
+        service.createWishlist(wishlist, userId);
         return "save-wishlist";
     }
 }
