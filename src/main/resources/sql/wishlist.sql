@@ -1,0 +1,37 @@
+CREATE DATABASE IF NOT EXISTS wishlist
+    CHARACTER SET utf8mb4;
+
+USE wishlist;
+
+#DROP TABLE IF EXISTS user;
+
+CREATE TABLE IF NOT EXISTS user
+(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+
+#DROP TABLE IF EXISTS list;
+
+CREATE TABLE IF NOT EXISTS list
+(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    user_id INT, FOREIGN KEY(user_id)
+        REFERENCES user (id)
+);
+
+#DROP TABLE IF EXISTS wish;
+
+CREATE TABLE IF NOT EXISTS wish
+(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description VARCHAR(250),
+    list_id INT, FOREIGN KEY (list_id)
+        REFERENCES list (id),
+    price INT,
+    link VARCHAR(500),
+    image VARCHAR(500),
+    priority BOOLEAN
+);
