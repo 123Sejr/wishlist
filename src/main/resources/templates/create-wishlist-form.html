@@ -14,14 +14,22 @@
         method="post"
         th:action="@{/{userId}/saveWishlist(userId=${userId})}"
     >
-        <label>Navn:</label>
+        <label >Navn:</label>
         <br />
         <input type="text" name="name" required>
         <br />
         <button type="submit">Gem</button>
-        <a th:href="@{/{userId}(userId=${userId})}">
-            <button type="button">Tilbage</button>
-        </a>
+
+        <!--<a th:href="@{/show-wishlists} ">
+            <button type="button" th:value="${userId}">Tilbage</button>
+        </a>-->
+    </form>
+
+    <form
+            th:action="@{/show-wishlists}"
+            method="get"
+    >
+        <button type="submit" th:value="${userId}">Tilbage</button>
     </form>
 </div>
 
