@@ -31,5 +31,12 @@ public class UserController {
     public String createUserSuccess() {
         return "create-user-success";
     }
+
+    @GetMapping("/")
+        public String getAllUsers(Model model) {
+            model.addAttribute("users", service.getAllUsers());
+            return "index";
+        }
+
 }
 //this is just a test to see if Qodana is working
