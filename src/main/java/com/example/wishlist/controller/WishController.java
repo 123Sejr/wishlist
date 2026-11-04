@@ -5,6 +5,7 @@ import com.example.wishlist.service.WishService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -20,14 +21,15 @@ public class WishController {
 
     @GetMapping("{wishlistId}/create-wish")
     public String createWish(Model model, @PathVariable int wishlistId){
-        model.addAttribute("wishlistID", wishlistId);
+        model.addAttribute("wishlistId", wishlistId);
         return "create-wish";
     }
 
-    @PostMapping("/save-wish")
-    public String saveWish(Wish wish, Model model){
+    @PostMapping("/{wishlistId}/save-wish")
+    public String saveWish(@PathVariable int wishlistId, @ModelAttribute Wish wish, Model model){
         model.addAttribute("wish", wish);
-        service.createWish(wish);
+        model.addAttribute("wishlistId", wishlistId);
+        service.createWish(wish, wishlistId);
         return "save-wish";
     }
 
@@ -40,5 +42,4 @@ public class WishController {
         model.addAttribute("wishlistId", wishlistId);
         return "open-wishlist";
     }
-
 }

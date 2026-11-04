@@ -15,12 +15,11 @@ public class WishRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void createWish(Wish wish) {
+    public void createWish(Wish wish, int wishlistId) {
 
         String sql = """
-                BEGIN TRANSACTION;
-                INSERT INTO wish (?, ?, ?, ?, ?, ?)
-                COMMIT;
+                INSERT INTO wish (name, description, list_id, price, link, image, isPriority)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
                 """;
 
         // Simple update, der virker, når vi ikke har behov for at få returneret det autogen id
@@ -29,11 +28,11 @@ public class WishRepository {
                 sql,
                 wish.getName(),
                 wish.getDesc(),
+                wishlistId,
                 wish.getPrice(),
                 wish.getLink(),
                 wish.getImage(),
                 wish.isPriority());
-                //wish.getListId() ?
 
         /* Metoden forneden er *kun* relevant, hvis vi skal bruge det auto genererede id.
            Så fremt det viser sig vi skal bruge det, kan det kommenteres ind igen og erstatte metoden ovenfor.

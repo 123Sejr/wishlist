@@ -2,9 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Ønske tilføjet</title>
 </head>
 <body>
-
+<div class="confirmation-box">
+    <h2>Ønsket er nu tilføjet 😎</h2>
+    <a th:href="@{/show-wishlists(userId=${userId})}">Tilbage</a>
+</div>
 </body>
 </html>
