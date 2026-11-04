@@ -81,11 +81,11 @@ public class Wish {
         this.image = image;
     }
 
-    public boolean isPriority() {
+    public boolean getIsPriority() {
         return isPriority;
     }
 
-    public void setPriority(boolean priority) {
+    public void setIsPriority(boolean priority) {
         isPriority = priority;
     }
 

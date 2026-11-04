@@ -32,7 +32,7 @@ public class WishRepository {
                 wish.getPrice(),
                 wish.getLink(),
                 wish.getImage(),
-                wish.isPriority());
+                wish.getIsPriority());
 
         /* Metoden forneden er *kun* relevant, hvis vi skal bruge det auto genererede id.
            Så fremt det viser sig vi skal bruge det, kan det kommenteres ind igen og erstatte metoden ovenfor.
