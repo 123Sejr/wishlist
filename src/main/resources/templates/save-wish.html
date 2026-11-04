@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/common.css}">
-    <title>Title</title>
+    <title>Ønske tilføjet</title>
 </head>
 <body>
-
+<div class="confirmation-box">
+    <h2>Ønsket er nu tilføjet 😎</h2>
+    <a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlistId})}">Tilbage til ønskeliste</a>
+</div>
 </body>
 </html>

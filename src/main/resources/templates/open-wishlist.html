@@ -35,14 +35,13 @@
             <td th:text="${wish.id}"></td>
             <td th:text="${wish.name}"></td>
             <td th:text="${wish.desc}"></td>
-            <td th:text="${wish.price}"></td>
+            <td><span th:unless="${wish.price == 0.0}" th:text="${wish.price}"></span></td>
             <td><a th:href="${wish.link}">Link</a></td>
-            <td><img th:src="${wish.image}" width="50px"></td>
+            <td><img th:src="${wish.image}" width="50px" alt=""></td>
             <td th:text="${wish.isPriority}"></td>
         </tr>
         </tbody>
     </table>
 </div>
-
 </body>
 </html>
