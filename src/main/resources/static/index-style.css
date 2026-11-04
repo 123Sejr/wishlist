@@ -1,0 +1,9 @@
+.box {
+    align-self: center;
+    background-color: indianred;
+    width: 500px;
+
+    p {
+        color: white;
+    }
+}

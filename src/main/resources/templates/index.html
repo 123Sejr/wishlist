@@ -3,26 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/common.css}">
+    <link rel="stylesheet" th:href="@{/index-style.css}">
     <title>1, 2, 3, Ønskeseddel!</title>
 </head>
 <body>
-<p>Her kan du oprette en ønskesedler og del dem med familie og venner.</p>
+<div class="header">
+    <h1>1, 2, 3, Ønskeliste!</h1>
+</div>
+<div class="box">
+    <p>Vælg en bruger fra listen</p>
+    <form action="/show-wishlists" method="get">
+        <label for="dropdown">
+            <select id="dropdown" class="dropdown" name="userId">
+                <option th:each="user : ${users}"
+                        th:value="${user.id}"
+                        th:text="${user.name}">
+                </option>
+            </select>
+        </label>
+        <button type="submit">Vis lister</button>
+    </form>
+</div>
+<div class="box">
+    <p>Eller opret en ny bruger:</p>
+    <a href="/create-user" class="button">Opret en ny bruger her</a>
+</div>
 </body>
-<p>Vælg en bruger fra listen</p>
-<br>
-<form action="/show-wishlists" method="get">
-    <label for="dropdown">
-        <select id="dropdown" class="dropdown" name="userId">
-            <option th:each="user : ${users}"
-                    th:value="${user.id}"
-                    th:text="${user.name}">
-            </option>
-        </select>
-    </label>
-    <button type="submit">Vis lister</button>
-</form>
-<br>
-<p>Eller opret en ny bruger:</p>
-<br>
-<a href="/create-user" class="button">Opret en ny bruger her</a>
 </html>

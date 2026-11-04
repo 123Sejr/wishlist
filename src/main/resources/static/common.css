@@ -1,10 +1,11 @@
-body {
+:root {
     margin: 0;
 }
 
 p, h1, table {
     font-family: "Poppins", sans-serif;
     color: indigo;
+    text-align: center;
 }
 
 h1 {
@@ -20,6 +21,16 @@ input {
 button {
     padding: 8px;
     border: 1px solid indigo;
+}
+
+.header {
+    background-color: indigo;
+    padding: 20px;
+
+    h1 {
+        color: white;
+        text-align: center;
+    }
 }
 
 .form-button {
