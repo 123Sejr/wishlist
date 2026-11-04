@@ -5,13 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/common.css}">
+    <link rel="stylesheet" th:href="@{/wishlists-style.css}">
     <title>Wishlists</title> <!--Indsæt brugerens navn i titlen. Tilføj det fra controlleren-->
 </head>
 <body>
 
 <div class="container">
     <p>
-        <a class="button" th:href="@{/{userId}/createWishlist(userId=${userId})}">Lav ny ønskeliste</a>
+        <a class="link-area" th:href="@{/{userId}/createWishlist(userId=${userId})}">Lav ny ønskeliste</a>
     </p>
 
     <table>

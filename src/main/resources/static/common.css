@@ -2,6 +2,10 @@
     margin: 0;
 }
 
+button, form {
+    text-align: center;
+}
+
 p, h1, table {
     font-family: "Poppins", sans-serif;
     color: indigo;
@@ -18,9 +22,9 @@ input {
     border: 1px solid indigo;
 }
 
-.link {
+.link-area {
     padding: 8px;
-    border: 1px solid indigo;
+    text-align: center;
 }
 
 .header {
