@@ -11,8 +11,8 @@ public class WishRowMapper implements RowMapper<Wish> {
         return new Wish(
                 rs.getInt("id"),
                 rs.getString("name"),
-                rs.getString("desc"),
-                rs.getInt("listId"),
+                rs.getString("description"),
+                rs.getInt("list_id"),
                 rs.getFloat("price"),
                 rs.getString("link"),
                 rs.getString("image"),

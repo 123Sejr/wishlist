@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class WishController {
     private final WishService service;
@@ -28,4 +30,15 @@ public class WishController {
         service.createWish(wish);
         return "save-wish";
     }
+
+    //GET-endpoint, der åbner en viser ønskerne på en specifik ønskeliste.
+    //Returnerer html-siden "open-wishlist".
+    @GetMapping("/{wishlistId}/open-wishlist")
+    public String openWishlist(@PathVariable int wishlistId, Model model) {
+        List<Wish> wishes = service.getAllWishesByListId(wishlistId);
+        model.addAttribute("wishes", wishes);
+        model.addAttribute("wishlistId", wishlistId);
+        return "open-wishlist";
+    }
+
 }

@@ -1,8 +1,11 @@
 package com.example.wishlist.repository;
 
 import com.example.wishlist.model.Wish;
+import com.example.wishlist.model.WishRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class WishRepository {
@@ -53,5 +56,15 @@ public class WishRepository {
                     return ps;
                 }, keyHolder);
         */
+    }
+
+    public List<Wish> getAllWishesByListId(int wishlistId) {
+        String sql = """
+                SELECT *
+                FROM wish
+                WHERE list_id = ?
+                ORDER BY id
+                """;
+        return jdbcTemplate.query(sql, new WishRowMapper(), wishlistId);
     }
 }
