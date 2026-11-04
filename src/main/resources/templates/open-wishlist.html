@@ -12,9 +12,7 @@
         <button type="button">Opret nyt ønske</button>
     </a>
 
-    <!--<a th:href="@{/{userId}/show-wishlists(userId=${userId})}">
-        <button type="button">Tilbage</button>
-    </a>-->
+    <!--<a th:href="@{/show-wishlists(userId=${userId})}"></a>-->
 
 
     <table>
@@ -39,7 +37,7 @@
             <td th:text="${wish.desc}"></td>
             <td th:text="${wish.price}"></td>
             <td th:text="${wish.link}"></td>
-            <td th:text="${wish.image}"></td>
+            <td><img th:src="${wish.image}" width="50px"></td>
             <td th:text="${wish.isPriority}"></td>
         </tr>
         </tbody>
