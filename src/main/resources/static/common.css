@@ -1,4 +1,4 @@
-:root {
+:root, body {
     margin: 0;
 }
 
@@ -6,14 +6,13 @@ button, form {
     text-align: center;
 }
 
-p, h1, table {
+p, h1, table, label, input, select, button {
     font-family: "Poppins", sans-serif;
     color: indigo;
     text-align: center;
 }
 
 h1 {
-    color: darkmagenta;
     font-size: 28px;
 }
 
