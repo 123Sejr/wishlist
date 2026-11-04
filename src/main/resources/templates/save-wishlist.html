@@ -9,11 +9,9 @@
 </head>
 <body>
 
-<div class="confirmation-box" align="center">
+<div class="confirmation-box">
     <h2>Ønskelisten er nu gemt</h2>
-    <a th:href="@{/show-wishlists}">
-        <button type="button">Tilbage til oversigt</button>
-    </a>
+    <a th:href="@{/show-wishlists(userId=${userId})}">Tilbage</a>
 </div>
 
 </body>
