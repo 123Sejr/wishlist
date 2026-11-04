@@ -10,6 +10,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 @Service
@@ -49,5 +50,9 @@ public class WishService {
         if (!URL_PATTERN.matcher(link).matches()) {
             throw new InvalidInputException("Link kan ikke genkendes.");
         }
+    }
+
+    public List<Wish> getAllWishesByListId(int wishlistId) {
+        return repo.getAllWishesByListId(wishlistId);
     }
 }

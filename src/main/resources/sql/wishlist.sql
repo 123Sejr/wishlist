@@ -33,5 +33,5 @@ CREATE TABLE IF NOT EXISTS wish
     price INT,
     link VARCHAR(500),
     image VARCHAR(500),
-    priority BOOLEAN
+    isPriority BOOLEAN
 );

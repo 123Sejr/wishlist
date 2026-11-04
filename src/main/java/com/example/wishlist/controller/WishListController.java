@@ -18,7 +18,7 @@ public class WishListController {
     }
 
     //GET-endpoint, der viser alle ønskelisterne for en bestemt bruger.
-    //Returnerer html-siden "showWishlists".
+    //Returnerer html-siden "show-wishlists".
     @GetMapping("/show-wishlists")
     public String showAllLists(@RequestParam int userId, Model model) {
         List<Wishlist> wishlists = service.showAllWishlistByUserId(userId);
