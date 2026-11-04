@@ -2,6 +2,25 @@
     margin: 0;
 }
 
+main {
+    margin: auto;
+    width: 500px;
+
+    p {
+        text-align: center;
+    }
+}
+
+header {
+    background-color: indigo;
+    padding: 20px;
+
+    h1 {
+        color: white;
+        text-align: center;
+    }
+}
+
 button, form {
     text-align: center;
 }
@@ -9,7 +28,10 @@ button, form {
 p, h1, table, label, input, select, button {
     font-family: "Poppins", sans-serif;
     color: indigo;
-    text-align: center;
+}
+
+tr:nth-child(even){
+    background-color: rgba(0 0 0 / 0.1);
 }
 
 h1 {
@@ -21,21 +43,6 @@ input {
     border: 1px solid indigo;
 }
 
-.link-area {
-    padding: 8px;
-    text-align: center;
-}
-
-.header {
-    background-color: indigo;
-    padding: 20px;
-
-    h1 {
-        color: white;
-        text-align: center;
-    }
-}
-
 .form-button {
     display: inline-block;
     padding: 8px 12px;
@@ -43,10 +50,4 @@ input {
     border: 1px solid indigo;
     text-decoration: none;
     color: black;
-}
-
-.dropdown {
-    color: indigo;
-    background-color: lightcyan;
-    border: 1px solid indigo;
 }

@@ -1,9 +1,9 @@
-.box {
-    align-self: center;
-    background-color: indianred;
-    width: 500px;
+.link-area {
+    padding: 8px;
+    text-align: center;
+}
 
-    p {
-        color: white;
-    }
+.dropdown {
+    color: indigo;
+    border: 1px solid indigo;
 }
