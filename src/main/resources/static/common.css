@@ -1,0 +1,53 @@
+:root, body {
+    margin: 0;
+}
+
+main {
+    margin: auto;
+    width: 500px;
+
+    p {
+        text-align: center;
+    }
+}
+
+header {
+    background-color: indigo;
+    padding: 20px;
+
+    h1 {
+        color: white;
+        text-align: center;
+    }
+}
+
+button, form {
+    text-align: center;
+}
+
+p, h1, table, label, input, select, button {
+    font-family: "Poppins", sans-serif;
+    color: indigo;
+}
+
+tr:nth-child(even){
+    background-color: rgba(0 0 0 / 0.1);
+}
+
+h1 {
+    font-size: 28px;
+}
+
+input {
+    padding: 8px;
+    border: 1px solid indigo;
+}
+
+.form-button {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: lightcyan;
+    border: 1px solid indigo;
+    text-decoration: none;
+    color: black;
+}
