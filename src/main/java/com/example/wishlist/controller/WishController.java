@@ -48,7 +48,7 @@ public class WishController {
     //Returnere siden delete-wish.html
     @PostMapping("/{wishId}/delete-wish")
     public String deleteWish(@PathVariable int wishId, Model model) {
-        Wish wish = service.findWishById(wishId);
+        Wish wish = service.getWishById(wishId);
         model.addAttribute("name", wish.getName());
         model.addAttribute("wishlistId", wish.getListId());
         service.deleteWish(wishId);

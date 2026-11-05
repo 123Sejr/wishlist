@@ -4,8 +4,6 @@ import com.example.wishlist.exception.DatabaseOperationException;
 import com.example.wishlist.exception.DuplicateIdException;
 import com.example.wishlist.exception.InvalidInputException;
 import com.example.wishlist.model.Wish;
-import com.example.wishlist.model.Wishlist;
-import com.example.wishlist.model.WishlistRowMapper;
 import com.example.wishlist.repository.WishRepository;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -64,8 +62,8 @@ public class WishService {
 
     }
 
-    public Wish findWishById(int wishId) {
-        return repo.findWishById(wishId);
+    public Wish getWishById(int id) {
+        return repo.getWishById(id);
     }
 
     public void deleteWish(int wishId) {
