@@ -1,7 +1,6 @@
 package com.example.wishlist.repository;
 
-import com.example.wishlist.model.Wish;
-import com.example.wishlist.model.WishRowMapper;
+import com.example.wishlist.model.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -67,4 +66,22 @@ public class WishRepository {
                 """;
         return jdbcTemplate.query(sql, new WishRowMapper(), wishlistId);
     }
+
+    //Finder den liste som ønske er tilknyttet, så metoden getUserIdFromWishlist() kan finde brugeren, som listen er tilknyttet.
+    public Wishlist getListFromWishlistId(int wishlistId) {
+        String sql = """
+                SELECT * FROM list
+                WHERE id = ?
+                """;
+        return jdbcTemplate.queryForObject(sql, new WishlistRowMapper(), wishlistId);
+    }
+
+    //Finder den user som listen er tilknyttet.
+    public int getUserIdFromWishlist(int wishlistId) {
+        Wishlist wishlist = getListFromWishlistId(wishlistId);
+        return wishlist.getUser_id();
+
+    }
+
+
 }

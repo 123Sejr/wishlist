@@ -38,6 +38,7 @@ public class WishController {
         List<Wish> wishes = service.getAllWishesByListId(wishlistId);
         model.addAttribute("wishes", wishes);
         model.addAttribute("wishlistId", wishlistId);
+        model.addAttribute("userId", service.getUserIdFromWishlist(wishlistId));
         return "open-wishlist";
     }
 
