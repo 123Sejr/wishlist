@@ -24,12 +24,12 @@ public class WishService {
     // Denne annotation ruller alle ændringer tilbage, hvis en eneste del af metoden fejler
     // https://dev.to/gianfcop98/transactions-in-spring-boot-what-transactional-really-does-and-why-it-matters-56a6
     @Transactional
-    public void createWish(Wish wish){
-        if (wish.getLink() != null) {validateLink(wish.getLink());} // hvis link er udfyldt, tjekker om det er en url
-        if (wish.getImage() != null) {validateLink(wish.getImage());} // hvis image er udfyldt, tjekker om det er en url
+    public void createWish(Wish wish, int wishlistId){
+        if (wish.getLink() != null && !wish.getLink().isBlank() ) {validateLink(wish.getLink());} // hvis link er udfyldt, tjekker om det er en url
+        if (wish.getImage() != null && !wish.getImage().isBlank()) {validateLink(wish.getImage());} // hvis image er udfyldt, tjekker om det er en url
 
         try {
-            repo.createWish(wish);
+            repo.createWish(wish, wishlistId);
         } catch (DataIntegrityViolationException e) {
             throw new DuplicateIdException("Id'et" + wish.getId() + "eksisterer allerede.", e);
         } catch (DataAccessException e){
