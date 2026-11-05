@@ -14,6 +14,15 @@ public class WishRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    public Wish getWishById(int id) {
+        String sql = """
+                SELECT * FROM wish
+                WHERE id = ?
+                """;
+
+        return jdbcTemplate.queryForObject(sql, new WishRowMapper(), id);
+    }
+
     public void createWish(Wish wish, int wishlistId) {
 
         String sql = """

@@ -4,10 +4,7 @@ import com.example.wishlist.model.Wish;
 import com.example.wishlist.service.WishService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,6 +14,16 @@ public class WishController {
 
     public WishController(WishService service) {
         this.service = service;
+    }
+
+
+    // Finder et wish ud fra dets id og viser det.
+    @GetMapping("/{wishlistId}/show-wish/{wishId}")
+    public String showWish(Model model, @PathVariable int wishlistId, @PathVariable int wishId){
+        Wish wish = service.getWishById(wishId);
+        model.addAttribute(wish);
+        model.addAttribute(wishlistId);
+        return "show-wish";
     }
 
     @GetMapping("{wishlistId}/create-wish")
