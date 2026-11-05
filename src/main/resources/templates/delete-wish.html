@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Delete wish</title>
+</head>
+<body>
+
+<span th:text="${name}"> er blevet slettet fra listen.</span>
+<br>
+<a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlistId})}">Tilbage til oversigt</a>
+
+</body>
+</html>

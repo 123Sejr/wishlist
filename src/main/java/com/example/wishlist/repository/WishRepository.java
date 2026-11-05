@@ -83,5 +83,26 @@ public class WishRepository {
 
     }
 
+    //Finder et specifikt ønske ud fra dens id.
+    public Wish findWishById(int wishId) {
+        String sql = """
+                SELECT * FROM wish
+                WHERE id = ?
+                """;
+        return jdbcTemplate.queryForObject(sql, new WishRowMapper(), wishId);
+    }
+
+
+    //Sletter et ønske ud fra dens id.
+    public void deleteWish(int wishId) {
+        Wish wish = findWishById(wishId);
+
+        if(wish != null) {
+            jdbcTemplate.update("DELETE FROM wish WHERE id = ?", wishId);
+        } else {
+            System.out.println("Ingen ønsker med det id.");
+        }
+    }
+
 
 }

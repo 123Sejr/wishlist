@@ -63,4 +63,12 @@ public class WishService {
         return repo.getUserIdFromWishlist(wishlistId);
 
     }
+
+    public Wish findWishById(int wishId) {
+        return repo.findWishById(wishId);
+    }
+
+    public void deleteWish(int wishId) {
+        repo.deleteWish(wishId);
+    }
 }
