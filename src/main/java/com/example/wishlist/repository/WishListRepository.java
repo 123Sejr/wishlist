@@ -43,4 +43,27 @@ public class WishListRepository {
         });
 
     }
+
+
+    //Finder en specifikt liste ud fra dens id.
+    public Wishlist findWishListById(int wishlistId) {
+        String sql = """
+                SELECT * FROM list
+                WHERE id = ?
+                """;
+        return jdbcTemplate.queryForObject(sql, new WishlistRowMapper(), wishlistId);
+    }
+
+
+    //Sletter en liste, samt dens ønsker, ud fra listens id.
+    public void deleteWishlist(int wishlistId) {
+        Wishlist wishlist = findWishListById(wishlistId);
+
+        if(wishlist != null) {
+            jdbcTemplate.update("DELETE FROM wish WHERE list_id = ?", wishlistId);
+            jdbcTemplate.update("DELETE FROM list WHERE id = ?", wishlistId);
+        } else {
+            System.out.println("Ingen ønsker med det id.");
+        }
+    }
 }

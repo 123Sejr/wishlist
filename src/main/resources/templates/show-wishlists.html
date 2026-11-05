@@ -35,12 +35,12 @@
             <!--<td><a th:href="@{}"> Endpointet der giver lov til at redigere navnet på listen
                 <button type="button">Rediger navn</button>
             </a></td>-->
-            <!--<td>
-                <form th:action="@{}"
-                    method="post"> Endpointet til slet
+            <td>
+                <form th:action="@{/{wishlistId}/delete-list(wishlistId=${wishlist.id})}"
+                    method="post"> <!--Endpointet der sletter en hel liste-->
                     <button type="submit">Slet</button>
                 </form>
-            </td>-->
+            </td>
         </tr>
         </tbody>
     </table>

@@ -22,4 +22,12 @@ public class WishListService {
     public void createWishlist(Wishlist wishlist, int user_id) {
         repo.createWishlist(wishlist, user_id);
     }
+
+    public Wishlist findWishListById(int wishlistId) {
+        return repo.findWishListById(wishlistId);
+    }
+
+    public void deleteWishlist(int wishlistId) {
+        repo.deleteWishlist(wishlistId);
+    }
 }
