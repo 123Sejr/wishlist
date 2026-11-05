@@ -1,22 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/common.css}">
+    <link rel="stylesheet" th:href="@{/wishlists-style.css}">
     <title>Wishlist's wishes</title>
 </head>
+<header>
+    <h1>1, 2, 3, Ønskeliste!</h1>
+</header>
 <body>
+<main>
+    <div class="container">
+        <ul>
+            <li>
+                <a th:href="@{/{wishlistId}/create-wish(wishlistId=${wishlistId})}">
+                    <button type="button">Opret nyt ønske</button>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/show-wishlists(userId=${userId})}">Tilbage</a>
+            </li>
+        </ul>
 
-<div class="container">
-
-    <a th:href="@{/{wishlistId}/create-wish(wishlistId=${wishlistId})}">
-        <button type="button">Opret nyt ønske</button>
-    </a>
-
-    <a th:href="@{/show-wishlists(userId=${userId})}">Tilbage</a>
-
-
-    <table>
+    </div>
+    <table class="table">
         <thead>
         <tr>
             <th>ID</th>
@@ -25,7 +33,6 @@
             <th>Pris</th>
             <th>Link</th>
             <th>Billede</th>
-            <th>Er ønsket prioriteret?</th>
         </tr>
         </thead>
         <tbody>
@@ -42,11 +49,14 @@
             <td th:text="${wish.desc}"></td>
             <td><span th:unless="${wish.price == 0.0}" th:text="${wish.price}"></span></td>
             <td><a th:href="${wish.link}">Link</a></td>
-            <td><img th:src="${wish.image}" width="50px" alt=""></td>
-            <td th:text="${wish.isPriority}"></td>
+            <td><img th:src="${wish.image}" height="100" alt=""></td>
+            <td th:if="${wish.isPriority == true}">
+                <img th:src="@{/images/priority-placeholder.png}" width="26"
+                     title="Prioriteret ønske" alt="- Prioriteret ønske">
+            </td>
         </tr>
         </tbody>
     </table>
-</div>
+</main>
 </body>
 </html>

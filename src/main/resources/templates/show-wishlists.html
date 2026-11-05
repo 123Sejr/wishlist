@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/common.css}">
     <link rel="stylesheet" th:href="@{/wishlists-style.css}">
     <title>Wishlists</title> <!--Indsæt brugerens navn i titlen. Tilføj det fra controlleren-->
 </head>
+<header>
+    <h1>1, 2, 3, Ønskeliste!</h1>
+</header>
 <body>
-
-<div class="container">
-    <p>
-        <a class="link-area" th:href="@{/{userId}/createWishlist(userId=${userId})}">Lav ny ønskeliste</a>
-    </p>
-
+<main>
+    <ul class="container">
+        <li>
+            <a th:href="@{/{userId}/createWishlist(userId=${userId})}">Lav ny ønskeliste</a>
+        </li>
+    </ul>
     <table>
         <thead>
         <tr>
@@ -29,7 +30,8 @@
         <tr th:each="wishlist : ${wishlists}">
             <td th:text="${wishlist.id}"></td>
             <td th:text="${wishlist.name}"></td>
-            <td><a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlist.id})}"> <!--Endpointet der viser ønskerne på den valgte liste-->
+            <td><a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlist.id})}">
+                <!--Endpointet der viser ønskerne på den valgte liste-->
                 <button type="button">Se ønskeliste</button>
             </a></td>
             <!--<td><a th:href="@{}"> Endpointet der giver lov til at redigere navnet på listen
@@ -45,7 +47,7 @@
         </tbody>
     </table>
 
-</div>
+</main>
 
 </body>
 </html>
