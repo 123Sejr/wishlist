@@ -45,6 +45,10 @@
         </tbody>
     </table>
 
+    <form th:action="@{/{userId}/delete-user(userId=${userId})}"
+          method="post">
+        <button type="submit">Slet brugeren</button>
+    </form>
 </div>
 
 </body>

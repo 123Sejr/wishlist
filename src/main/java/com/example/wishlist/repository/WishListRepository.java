@@ -27,7 +27,7 @@ public class WishListRepository {
     }
 
 
-
+    //Opretter en ny ønskeliste, tilknyttet et bestemt bruger id.
     public void createWishlist(Wishlist wishlist, int user_id) {
         String sql = """
                 INSERT INTO list (name, user_id)
@@ -63,7 +63,7 @@ public class WishListRepository {
             jdbcTemplate.update("DELETE FROM wish WHERE list_id = ?", wishlistId);
             jdbcTemplate.update("DELETE FROM list WHERE id = ?", wishlistId);
         } else {
-            System.out.println("Ingen ønsker med det id.");
+            System.out.println("Ingen liste med det id.");
         }
     }
 }

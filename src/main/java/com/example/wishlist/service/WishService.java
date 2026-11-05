@@ -3,6 +3,7 @@ package com.example.wishlist.service;
 import com.example.wishlist.exception.DatabaseOperationException;
 import com.example.wishlist.exception.DuplicateIdException;
 import com.example.wishlist.exception.InvalidInputException;
+import com.example.wishlist.exception.NotFoundException;
 import com.example.wishlist.model.Wish;
 import com.example.wishlist.repository.WishRepository;
 import org.springframework.dao.DataAccessException;
@@ -63,7 +64,17 @@ public class WishService {
     }
 
     public Wish getWishById(int id) {
-        return repo.getWishById(id);
+        Wish wish;
+
+        try {
+            wish = repo.getWishById(id);
+        } catch (DataAccessException ex) {
+            throw new DatabaseOperationException("Ønsket kunne ikke hentes.", ex);
+        }
+        if (wish == null) {
+            throw new NotFoundException("Ønsket med id " + id + " blev ikke fundet.");
+        }
+        return wish;
     }
 
     public void deleteWish(int wishId) {
