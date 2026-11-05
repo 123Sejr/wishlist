@@ -6,28 +6,31 @@
     <link rel="stylesheet" th:href="@{/wish.css}">
     <title th:text="${wish.name}"></title>
 </head>
-<body>
+<body class="grid">
 <header>
     <h1>1, 2, 3, Ønskeliste!</h1>
 </header>
+<div class="title">
+    <h2>
+        <span th:text="${wish.name}"></span>
+        <span th:if="${wish.isPriority == true}">
+            <img th:src="@{/images/priority-placeholder.png}" width="26" title="Prioriteret ønske" alt="- Prioriteret ønske">
+        </span>
+    </h2>
+</div>
+<img class="image" th:src="${wish.image}" width="auto" alt="">
 <main>
-    <h2 th:text="${wish.name}"></h2>
-    <span th:if="${wish.isPriority == true}">-- et prioriteret ønske!</span>
-    <br>
-    <div class="image">
-        <img th:src="${wish.image}" width="auto" alt="">
-    </div>
     <div class="param-box">
         <h3>Beskrivelse:</h3>
-        <p th:text="${wish.desc}"></p>
-    </div >
+        <span th:text="${wish.desc}"></span>
+    </div>
     <div class="param-box" th:unless="${wish.price == 0.0}">
         <h3>Pris: </h3>
-        <span th:text="${wish.price}"></span>
+        <span th:text="${wish.price}"> kr</span>
     </div>
     <div class="param-box">
-        <p>Link til produkt: </p>
-        <span th:text="${wish.link}"></span>
+        <p>Link til produkt kan findes</p>
+        <a th:href="${wish.link}">her</a>
     </div>
 </main>
 <div>
