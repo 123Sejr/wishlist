@@ -22,6 +22,10 @@ public class WishService {
         this.repo = repo;
     }
 
+    public Wish getWishById(int id){
+        return repo.getWishById(id);
+    }
+
     // Denne annotation ruller alle ændringer tilbage, hvis en eneste del af metoden fejler
     // https://dev.to/gianfcop98/transactions-in-spring-boot-what-transactional-really-does-and-why-it-matters-56a6
     @Transactional

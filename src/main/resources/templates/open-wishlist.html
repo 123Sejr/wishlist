@@ -34,7 +34,11 @@
         </tr>
         <tr th:each="wish : ${wishes}">
             <td th:text="${wish.id}"></td>
-            <td th:text="${wish.name}"></td>
+            <td>
+                <a th:href="@{/{wishlistId}/show-wish/{wishId}(wishlistId=${wishlistId}, wishId=${wish.id})}">
+                    <p th:text="${wish.name}"></p>
+                </a>
+            </td>
             <td th:text="${wish.desc}"></td>
             <td><span th:unless="${wish.price == 0.0}" th:text="${wish.price}"></span></td>
             <td><a th:href="${wish.link}">Link</a></td>

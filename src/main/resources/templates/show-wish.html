@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/common.css}">
+    <link rel="stylesheet" th:href="@{/wish.css}">
+    <title th:text="${wish.name}"></title>
+</head>
+<body>
+<header>
+    <h1>1, 2, 3, Ønskeliste!</h1>
+</header>
+<main>
+    <h2 th:text="${wish.name}"></h2>
+    <span th:if="${wish.isPriority == true}">-- et prioriteret ønske!</span>
+    <br>
+    <div class="image">
+        <img th:src="${wish.image}" width="auto" alt="">
+    </div>
+    <div class="param-box">
+        <h3>Beskrivelse:</h3>
+        <p th:text="${wish.desc}"></p>
+    </div >
+    <div class="param-box" th:unless="${wish.price == 0.0}">
+        <h3>Pris: </h3>
+        <span th:text="${wish.price}"></span>
+    </div>
+    <div class="param-box">
+        <p>Link til produkt: </p>
+        <span th:text="${wish.link}"></span>
+    </div>
+</main>
+<div>
+    <a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlistId})}">Tilbage til ønskeliste</a>
+</div>
+</body>
+</html>
