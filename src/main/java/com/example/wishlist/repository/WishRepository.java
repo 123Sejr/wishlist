@@ -14,6 +14,7 @@ public class WishRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    //Finder et specifikt ønske ud fra dens id.
     public Wish getWishById(int id) {
         String sql = """
                 SELECT * FROM wish
@@ -89,15 +90,6 @@ public class WishRepository {
         Wishlist wishlist = getListFromWishlistId(wishlistId);
         return wishlist.getUser_id();
 
-    }
-
-    //Finder et specifikt ønske ud fra dens id.
-    public Wish getWishById(int id) {
-        String sql = """
-                SELECT * FROM wish
-                WHERE id = ?
-                """;
-        return jdbcTemplate.queryForObject(sql, new WishRowMapper(), id);
     }
 
 
