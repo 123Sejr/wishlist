@@ -78,4 +78,11 @@ public class UserRepository {
 
     }
 
+    public void editUser(User user) {
+
+        jdbcTemplate.update("UPDATE user SET name = ? WHERE id = ?", user.getName(), user.getId());
+
+
+    }
+
 }
