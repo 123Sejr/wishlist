@@ -31,7 +31,7 @@
     <input id="image" type="url" name="image" th:value="${wish.image}">
     <br>
     <label for="isPriority">Er det et særligt prioriteret ønske?</label>
-    <input id="isPriority" type="checkbox" name="isPriority" th:value="${wish.isPriority}">
+    <input id="isPriority" type="checkbox" name="isPriority" th:field="${wish.isPriority}">
     <br>
     <label for="submit"></label>
     <button id="submit" type="submit">Opdater ønske</button>
