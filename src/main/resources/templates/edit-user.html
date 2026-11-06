@@ -17,6 +17,10 @@
     <button type="submit">Bekræft nyt navn</button>
 </form>
 
+<form th:action="@{/{userId}/delete-user(userId=${user.id})}"
+      method="post">
+    <button type="submit">Slet brugeren</button>
+</form>
 
 
 </body>
