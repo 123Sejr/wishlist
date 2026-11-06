@@ -53,22 +53,15 @@ public class UserController {
     @GetMapping("/{id}/edit-user")
     public String editUser(@PathVariable int id, Model model) {
         User user = service.findUserById(id);
-
         model.addAttribute("user", user);
-
-
         return "edit-user";
     }
 
 
-    @PostMapping("/{id}/update-user")
+    @PostMapping("/update-user")
     public String updateUser(Model model, @ModelAttribute("user") User user) {
-
-
         service.editUser(user);
-
         model.addAttribute("user", user);
-
         return "update-user";
     }
 

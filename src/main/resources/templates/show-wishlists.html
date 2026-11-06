@@ -16,6 +16,9 @@
             <a th:href="@{/{userId}/createWishlist(userId=${userId})}">Lav ny ønskeliste</a>
         </li>
         <li>
+            <a th:href="@{/{userId}/edit-user(userId=${userId})}">Ændre brugernavn</a>
+        </li>
+        <li>
             <form th:action="@{/{userId}/delete-user(userId=${userId})}"
                   method="post">
                 <button type="submit">Slet brugeren</button>
