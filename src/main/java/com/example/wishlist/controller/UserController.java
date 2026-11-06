@@ -61,7 +61,7 @@ public class UserController {
     }
 
 
-    @PostMapping("/{id}/edit-user")
+    @PostMapping("/{id}/update-user")
     public String updateUser(Model model, @ModelAttribute("user") User user) {
 
 

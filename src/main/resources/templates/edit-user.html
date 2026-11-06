@@ -6,7 +6,7 @@
     <title>Rediger burger</title>
 </head>
 <body>
-<form th:action="@{/{id}/edit-user (id=${user.id})}"
+<form th:action="@{/{id}/update-user (id=${user.id})}"
         th:object="${user}"
         method="post">
     <label for="id"></label>
