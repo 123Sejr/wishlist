@@ -1,7 +1,6 @@
 package com.example.wishlist.controller;
 
 import com.example.wishlist.model.Wishlist;
-import com.example.wishlist.service.UserService;
 import com.example.wishlist.service.WishListService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,6 +45,27 @@ public class WishListController {
         service.createWishlist(wishlist, userId);
         return "save-wishlist";
     }
+
+
+    //GET-endpointet, der giver brugeren lov til at omdøbe navnet på den specifik liste.
+    //Returnere html-siden "edit-wishlist-name".
+    @GetMapping("/{wishlistId}/edit-wishlist-name")
+    public String editWishlistName(@PathVariable int wishlistId, Model model) {
+        Wishlist wishlist = service.findWishListById(wishlistId);
+        model.addAttribute("wishlist", wishlist);
+        return "edit-wishlist-name";
+    }
+
+    //POST-endpointet, der gemmer det nye navn på ønskeliste fra GET-endpointet "/{wishlistId}/edit-wishlist-name".
+    //Returnere html-siden update-wishlist-name
+    @PostMapping("/update-wislist-name")
+    public String updateWishlistName(Model model, @ModelAttribute("wishlist") Wishlist wishlist) {
+        System.out.println(wishlist.getId());
+        model.addAttribute("wishlist", wishlist);
+        service.editWishlistName(wishlist);
+        return "update-wishlist-name";
+    }
+
 
 
     //POST-endpoint, der sletter en hel liste og alle dens ønsker.

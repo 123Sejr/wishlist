@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oplysninger gemt</title>
+</head>
+<body>
+
+<div class="confirmation">
+    <h1>Ændringer gemt</h1>
+    <p>Navnet på ønskelisten er ændret til:</p>
+    <p th:text="${wishlist.name}"></p>
+    <br />
+    <a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlist.id})}">Tilbage til oversigt</a>
+</div>
+
+</body>
+</html>

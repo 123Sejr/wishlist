@@ -11,6 +11,14 @@
 </header>
 <body>
 <main>
+
+    <div class="wishlist-name">
+        <h2 th:text="${wishlistName}"></h2>
+        <span>
+            <a th:href="@{/{wishlistId}/edit-wishlist-name(wishlistId=${wishlistId})}">Omdøb</a>
+        </span>
+    </div>
+
     <div class="container">
         <ul>
             <li>

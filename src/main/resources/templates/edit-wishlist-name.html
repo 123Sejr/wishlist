@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Omdøb ønskeliste</title>
+</head>
+<body>
+
+<div class="edit-box" align="center">
+    <h1>Omdøb ønskelisten</h1>
+    <form
+        method="post"
+        th:action="@{/update-wislist-name}"
+        th:object="${wishlist}"
+    >
+        <label for="id"></label>
+        <input id="id" type="number" th:field="*{id}" hidden="hidden"/>
+        <label for="name">Navn:</label>
+        <input id="name" type="text" th:field="*{name}" required/>
+        <button type="submit">Gem</button>
+        <a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlist.id})}">Tilbage</a>
+    </form>
+</div>
+
+</body>
+</html>
