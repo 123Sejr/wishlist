@@ -104,5 +104,27 @@ public class WishRepository {
         }
     }
 
+    public void editWish(Wish wish){
 
+        String sql = """
+                UPDATE wish
+                SET name = ?,
+                description = ?,
+                price = ?,
+                link = ?,
+                image = ?,
+                isPriority = ?
+                WHERE id = ?
+                """;
+
+        jdbcTemplate.update(
+                sql,
+                wish.getName(),
+                wish.getDesc(),
+                wish.getPrice(),
+                wish.getLink(),
+                wish.getImage(),
+                wish.getIsPriority(),
+                wish.getId());
+    }
 }

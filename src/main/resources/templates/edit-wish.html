@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/common.css}">
+    <title th:text="${wish.name}"></title>
+</head>
+<body>
+<form method="post"
+      th:action="@{/update-wish/{wishId}(wishId=${wish.id})}"
+      th:object="${wish}">
+    <p>Du er ved at tilføje et ønske til ønskelisten</p>
+    <label for="id"></label>
+    <input id="id" type="number" name="id" th:value="${wish.id}" hidden>
+    <label for="name">Navn:</label>
+    <input id="name" type="text" name="name" th:value="${wish.name}" required/>
+    <br>
+    <label for="desc">Beskrivelse:</label>
+    <textarea id="desc" name="desc" rows="5" cols="25" th:value="${wish.desc}" th:text="${wish.desc}"></textarea>
+    <br>
+    <label for="listId"></label>
+    <input id="listId" type="number" name="listId" th:value="${wish.listId}" hidden>
+    <br>
+    <label for="price">Pris:</label>
+    <input id="price" type="number" name="price" th:value="${wish.price}">
+    <br>
+    <label for="link">Link:</label>
+    <input id="link" type="url" name="link" th:value="${wish.link}">
+    <br>
+    <label for="image">Billedelink:</label>
+    <input id="image" type="url" name="image" th:value="${wish.image}">
+    <br>
+    <label for="isPriority">Er det et særligt prioriteret ønske?</label>
+    <input id="isPriority" type="checkbox" name="isPriority" th:field="${wish.isPriority}">
+    <br>
+    <label for="submit"></label>
+    <button id="submit" type="submit">Opdater ønske</button>
+</form>
+</body>
+</html>
