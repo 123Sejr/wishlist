@@ -25,4 +25,8 @@ table {
 
 .container {
     grid-area: sidebar;
+    li
+    {
+        list-style: none;
+    }
 }
