@@ -70,7 +70,7 @@ public class WishController {
     }
 
     @PostMapping("/update-wish/{wishId}")
-    public String updateWish(@PathVariable int wishId, @ModelAttribute("wish") Wish wish, Model model) {
+    public String updateWish(@ModelAttribute("wish") Wish wish, Model model) {
         service.editWish(wish);
         model.addAttribute("wish", wish);
         return "update-wish";
