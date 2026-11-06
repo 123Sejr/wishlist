@@ -80,4 +80,8 @@ public class WishService {
     public void deleteWish(int wishId) {
         repo.deleteWish(wishId);
     }
+
+    public void editWish(Wish wish){
+        repo.editWish(wish);
+    }
 }

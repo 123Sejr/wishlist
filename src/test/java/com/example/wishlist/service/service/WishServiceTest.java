@@ -13,9 +13,12 @@ class WishServiceTest {
 
     @Test
     void testValidateLink() {
+
+        //tester om et link, der bør være validt, rent faktisk er det (altså ikke smider en exception)
         String goodLink = "https://www.ek.dk";
         assertDoesNotThrow(() -> service.validateLink(goodLink));
 
+        //
         String badLink = "1læ1kwklmel1ej330";
         assertThrows(InvalidInputException.class, () -> service.validateLink(badLink));
     }

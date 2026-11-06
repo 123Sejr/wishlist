@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${wish.name}"> opdateret</title>
+</head>
+<body>
+<div class="confirmation-box">
+    <h2>Ønsket er nu ændret 😎</h2>
+    <a th:href="@{/{wishlistId}/show-wish/{wishId}(wishlistId=${wish.listId}, wishId=${wish.id})}">Tilbage til ønskeliste</a>
+</div>
+</body>
+</html>

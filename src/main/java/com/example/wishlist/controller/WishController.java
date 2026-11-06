@@ -22,7 +22,6 @@ public class WishController {
     public String showWish(Model model, @PathVariable int wishlistId, @PathVariable int wishId){
         Wish wish = service.getWishById(wishId);
         model.addAttribute(wish);
-        model.addAttribute(wishlistId);
         return "show-wish";
     }
 
@@ -60,6 +59,21 @@ public class WishController {
         model.addAttribute("wishlistId", wish.getListId());
         service.deleteWish(wishId);
         return "delete-wish";
+    }
+
+    @GetMapping("/{wishlistId}/edit-wish/{wishId}")
+    public String editWish(@PathVariable int wishlistId, @PathVariable int wishId, Model model) {
+        Wish wish = service.getWishById(wishId);
+        model.addAttribute(wish);
+        model.addAttribute(wishlistId);
+        return "edit-wish";
+    }
+
+    @PostMapping("/update-wish/{wishId}")
+    public String updateWish(@PathVariable int wishId, @ModelAttribute("wish") Wish wish, Model model) {
+        service.editWish(wish);
+        model.addAttribute("wish", wish);
+        return "update-wish";
     }
 
 }

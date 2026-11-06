@@ -10,6 +10,17 @@
 <header>
     <h1>1, 2, 3, Ønskeliste!</h1>
 </header>
+<main>
+<div class="sidebar">
+    <ul>
+        <li>
+            <a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlistId})}">Tilbage til ønskeliste</a>
+        </li>
+        <li>
+            <a th:href="@{/{wishlistId}/edit-wish/{wishId}(wishlistId=${wishlistId}, wishId=${wishId})}">Rediger ønske</a>
+        </li>
+    </ul>
+</div>
 <div class="title">
     <h2>
         <span th:text="${wish.name}"></span>
@@ -19,7 +30,7 @@
     </h2>
 </div>
 <img class="image" th:src="${wish.image}" alt="">
-<main>
+<div class="content">
     <div class="param-box">
         <h3>Beskrivelse:</h3>
         <span th:text="${wish.desc}"></span>
@@ -32,9 +43,7 @@
         <p>Link til produkt kan findes</p>
         <a th:href="${wish.link}">her</a>
     </div>
-</main>
-<div>
-    <a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlistId})}">Tilbage til ønskeliste</a>
 </div>
+</main>
 </body>
 </html>
