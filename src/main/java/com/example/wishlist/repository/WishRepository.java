@@ -14,6 +14,7 @@ public class WishRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    //Finder et specifikt ønske ud fra dens id.
     public Wish getWishById(int id) {
         String sql = """
                 SELECT * FROM wish
@@ -89,6 +90,18 @@ public class WishRepository {
         Wishlist wishlist = getListFromWishlistId(wishlistId);
         return wishlist.getUser_id();
 
+    }
+
+
+    //Sletter et ønske ud fra dens id.
+    public void deleteWish(int wishId) {
+        Wish wish = getWishById(wishId);
+
+        if(wish != null) {
+            jdbcTemplate.update("DELETE FROM wish WHERE id = ?", wishId);
+        } else {
+            System.out.println("Ingen ønsker med det id.");
+        }
     }
 
 

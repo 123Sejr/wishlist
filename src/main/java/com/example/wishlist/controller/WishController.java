@@ -50,4 +50,16 @@ public class WishController {
         model.addAttribute("userId", service.getUserIdFromWishlist(wishlistId));
         return "open-wishlist";
     }
+
+    //POST-endpoint der sletter et ønske fra en liste.
+    //Returnere siden delete-wish.html
+    @PostMapping("/{wishId}/delete-wish")
+    public String deleteWish(@PathVariable int wishId, Model model) {
+        Wish wish = service.getWishById(wishId);
+        model.addAttribute("name", wish.getName());
+        model.addAttribute("wishlistId", wish.getListId());
+        service.deleteWish(wishId);
+        return "delete-wish";
+    }
+
 }

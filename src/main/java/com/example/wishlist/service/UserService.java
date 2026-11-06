@@ -2,6 +2,7 @@ package com.example.wishlist.service;
 
 import com.example.wishlist.exception.DatabaseOperationException;
 import com.example.wishlist.exception.DuplicateIdException;
+import com.example.wishlist.exception.NotFoundException;
 import com.example.wishlist.model.User;
 import com.example.wishlist.repository.UserRepository;
 import org.springframework.dao.DataAccessException;
@@ -30,5 +31,26 @@ public class UserService {
 
     public List<User> getAllUsers() {
         return  repo.getAllUsers();
+    }
+
+
+    public User findUserById(int id) {
+        User user;
+
+        try {
+            user = repo.findUserbyId(id);
+        } catch (DataAccessException ex) {
+            throw new DatabaseOperationException("Brugeren kunne ikke hentes.", ex);
+        }
+        if (user == null) {
+            throw new NotFoundException("Brugeren med id " + id + " blev ikke fundet.");
+        }
+
+        return user;
+    }
+
+
+    public void deleteUser(int id) {
+        repo.deleteUser(id);
     }
 }
