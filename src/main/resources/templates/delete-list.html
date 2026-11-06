@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slet ønskeliste</title>
+</head>
+<body>
+
+<span>Listen "'</span>
+<span th:text="${name}"></span>
+<span>'" er blevet slettet.</span>
+<br>
+<a th:href="@{/show-wishlists(userId=${userId})}">Tilbage til ønskelisterne</a>
+
+</body>
+</html>

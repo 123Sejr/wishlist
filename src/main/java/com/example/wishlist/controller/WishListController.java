@@ -32,7 +32,6 @@ public class WishListController {
     //Returnerer html-siden "createWishlistForm".
     @GetMapping("/{userId}/createWishlist")
     public String createWishlist(@PathVariable int userId, Model model) {
-        //@RequestParam(value = "back-button") int userId
         model.addAttribute("userId", userId);
         return "create-wishlist-form";
     }
@@ -47,4 +46,17 @@ public class WishListController {
         service.createWishlist(wishlist, userId);
         return "save-wishlist";
     }
+
+
+    //POST-endpoint, der sletter en hel liste og alle dens ønsker.
+    //Returnere siden delete-list.html
+    @PostMapping("/{wishlistId}/delete-list")
+    public String deleteList(@PathVariable int wishlistId, Model model) {
+        Wishlist wishlist = service.findWishListById(wishlistId);
+        model.addAttribute("name", wishlist.getName());
+        model.addAttribute("userId", wishlist.getUser_id());
+        service.deleteWishlist(wishlistId);
+        return "delete-list";
+    }
+
 }

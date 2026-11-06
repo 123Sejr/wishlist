@@ -5,6 +5,7 @@ import com.example.wishlist.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -37,6 +38,16 @@ public class UserController {
             model.addAttribute("users", service.getAllUsers());
             return "index";
         }
+
+    //POST-endpoint, der sletter en user, samt dens lister og listens ønsker.
+    //Returnere siden delete-user.html
+    @PostMapping("/{id}/delete-user")
+    public String deleteUser(@PathVariable int id, Model model) {
+        User user = service.findUserById(id);
+        model.addAttribute("name", user.getName());
+        service.deleteUser(id);
+        return "delete-user";
+    }
 
 }
 //this is just a test to see if Qodana is working

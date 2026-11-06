@@ -91,5 +91,26 @@ public class WishRepository {
 
     }
 
+    //Finder et specifikt ønske ud fra dens id.
+    public Wish getWishById(int id) {
+        String sql = """
+                SELECT * FROM wish
+                WHERE id = ?
+                """;
+        return jdbcTemplate.queryForObject(sql, new WishRowMapper(), id);
+    }
+
+
+    //Sletter et ønske ud fra dens id.
+    public void deleteWish(int wishId) {
+        Wish wish = getWishById(wishId);
+
+        if(wish != null) {
+            jdbcTemplate.update("DELETE FROM wish WHERE id = ?", wishId);
+        } else {
+            System.out.println("Ingen ønsker med det id.");
+        }
+    }
+
 
 }

@@ -44,6 +44,12 @@
             <td><a th:href="${wish.link}">Link</a></td>
             <td><img th:src="${wish.image}" width="50px" alt=""></td>
             <td th:text="${wish.isPriority}"></td>
+            <td>
+                <form th:action="@{/{wishId}/delete-wish(wishId=${wish.id})}"
+                      method="post">
+                    <button type="submit">Slet</button>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>

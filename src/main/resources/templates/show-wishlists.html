@@ -6,9 +6,14 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/common.css}">
     <link rel="stylesheet" th:href="@{/wishlists-style.css}">
-    <title>Wishlists</title> <!--Indsæt brugerens navn i titlen. Tilføj det fra controlleren-->
+    <title>Wishlists</title>
 </head>
 <body>
+
+<form th:action="@{/{userId}/delete-user(userId=${userId})}"
+      method="post">
+    <button type="submit">Slet brugeren</button>
+</form>
 
 <div class="container">
     <p>
@@ -35,15 +40,17 @@
             <!--<td><a th:href="@{}"> Endpointet der giver lov til at redigere navnet på listen
                 <button type="button">Rediger navn</button>
             </a></td>-->
-            <!--<td>
-                <form th:action="@{}"
-                    method="post"> Endpointet til slet
+            <td>
+                <form th:action="@{/{wishlistId}/delete-list(wishlistId=${wishlist.id})}"
+                    method="post"> <!--Endpointet der sletter en hel liste-->
                     <button type="submit">Slet</button>
                 </form>
-            </td>-->
+            </td>
         </tr>
         </tbody>
     </table>
+
+    <a th:href="@{/}">Tilbage</a>
 
 </div>
 
