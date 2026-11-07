@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/common.css}">
+    <link rel="stylesheet" th:href="@{/wish-form.css}">
     <title th:text="${wish.name}"></title>
 </head>
+<header>
+    <h1>1, 2, 3, Ønskeliste!</h1>
+</header>
 <body>
 <form method="post"
       th:action="@{/update-wish/{wishId}(wishId=${wish.id})}"
       th:object="${wish}">
-    <p>Du er ved at tilføje et ønske til ønskelisten</p>
+    <p>Du er ved at redigerer et ønske.</p>
     <label for="id"></label>
     <input id="id" type="number" name="id" th:value="${wish.id}" hidden>
     <label for="name">Navn:</label>

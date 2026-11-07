@@ -1,34 +1,41 @@
-main {
+body {
     display: grid;
     grid-template-areas:
-        "header header"
-        "sidebar title"
-        "sidebar image"
-        "sidebar content";
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto auto auto auto;
+        "sidebar main";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto;
     min-height: 100vh;
     max-width: 100vw;
 }
 
-header {
-    grid-area: header;
+main {
+    display: grid;
+    grid-template-columns: auto;
 }
 
 .sidebar {
     grid-area: sidebar;
+    padding: 1.5em;
+    background-color: indigo;
+
+    a {
+        color: white;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
     li {
         list-style: none;
     }
 }
 
 .title {
-    grid-area: title;
     text-align: center;
 }
 
 .image {
-    grid-area: image;
     justify-self: center;
     max-height: 20em;
 }
@@ -38,13 +45,14 @@ img {
 }
 
 .content {
-    grid-area: main;
+    justify-items: center;
 }
 
 .param-box {
     border: cornflowerblue solid;
     margin: 10px;
     padding: 10px;
+    justify-self: center;
 
     p, a {
         display: inline;
