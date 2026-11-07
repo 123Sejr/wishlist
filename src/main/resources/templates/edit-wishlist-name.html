@@ -2,8 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/common.css}">
     <title>Omdøb ønskeliste</title>
 </head>
+<header>
+    <h1>1, 2, 3, Ønskeliste!</h1>
+</header>
 <body>
 
 <div class="edit-box" align="center">
@@ -18,7 +22,8 @@
         <label for="name">Navn:</label>
         <input id="name" type="text" th:field="*{name}" required/>
         <button type="submit">Gem</button>
-        <a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlist.id})}">Tilbage</a>
+        <br />
+        <a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlist.id})}">Fortryd</a>
     </form>
 </div>
 
