@@ -58,7 +58,7 @@ public class WishListController {
 
     //POST-endpointet, der gemmer det nye navn på ønskeliste fra GET-endpointet "/{wishlistId}/edit-wishlist-name".
     //Returnere html-siden update-wishlist-name
-    @PostMapping("/update-wislist-name")
+    @PostMapping("/update-wishlist-name")
     public String updateWishlistName(Model model, @ModelAttribute("wishlist") Wishlist wishlist) {
         System.out.println(wishlist.getId());
         model.addAttribute("wishlist", wishlist);
