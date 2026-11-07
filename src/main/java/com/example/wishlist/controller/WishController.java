@@ -1,6 +1,7 @@
 package com.example.wishlist.controller;
 
 import com.example.wishlist.model.Wish;
+import com.example.wishlist.model.Wishlist;
 import com.example.wishlist.service.WishService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,8 +46,10 @@ public class WishController {
     @GetMapping("/{wishlistId}/open-wishlist")
     public String openWishlist(@PathVariable int wishlistId, Model model) {
         List<Wish> wishes = service.getAllWishesByListId(wishlistId);
+        Wishlist wishlist = service.getListFromWishlistId(wishlistId);
         model.addAttribute("wishes", wishes);
         model.addAttribute("wishlistId", wishlistId);
+        model.addAttribute("wishlistName", wishlist.getName());
         model.addAttribute("userId", service.getUserIdFromWishlist(wishlistId));
         return "open-wishlist";
     }
