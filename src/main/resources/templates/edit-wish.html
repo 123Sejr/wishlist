@@ -6,39 +6,47 @@
     <link rel="stylesheet" th:href="@{/wish-form.css}">
     <title th:text="${wish.name}"></title>
 </head>
+<body>
 <header>
     <h1>1, 2, 3, Ønskeliste!</h1>
 </header>
-<body>
-<form method="post"
-      th:action="@{/update-wish/{wishId}(wishId=${wish.id})}"
-      th:object="${wish}">
-    <p>Du er ved at redigerer et ønske.</p>
-    <label for="id"></label>
-    <input id="id" type="number" name="id" th:value="${wish.id}" hidden>
-    <label for="name">Navn:</label>
-    <input id="name" type="text" name="name" th:value="${wish.name}" required/>
-    <br>
-    <label for="desc">Beskrivelse:</label>
-    <textarea id="desc" name="desc" rows="5" cols="25" th:value="${wish.desc}" th:text="${wish.desc}"></textarea>
-    <br>
-    <label for="listId"></label>
-    <input id="listId" type="number" name="listId" th:value="${wish.listId}" hidden>
-    <br>
-    <label for="price">Pris:</label>
-    <input id="price" type="number" name="price" th:value="${wish.price}">
-    <br>
-    <label for="link">Link:</label>
-    <input id="link" type="url" name="link" th:value="${wish.link}">
-    <br>
-    <label for="image">Billedelink:</label>
-    <input id="image" type="url" name="image" th:value="${wish.image}">
-    <br>
-    <label for="isPriority">Er det et særligt prioriteret ønske?</label>
-    <input id="isPriority" type="checkbox" name="isPriority" th:field="${wish.isPriority}">
-    <br>
-    <label for="submit"></label>
-    <button id="submit" type="submit">Opdater ønske</button>
-</form>
+<main>
+    <div>
+        <a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlistId})}">Tilbage til ønskeliste</a>
+    </div>
+    <form method="post"
+          th:action="@{/update-wish/{wishId}(wishId=${wish.id})}"
+          th:object="${wish}">
+        <div>
+            <span>Du er ved at redigere ønsket</span>
+            <span th:text="${wish.name}"></span>
+            <span> på ønskelisten </span>
+            <span th:text="${wishlistName}"></span>
+            <span>.</span>
+        </div>
+        <div class="field-container">
+            <label for="id" hidden></label>
+            <input id="id" type="number" name="id" th:value="${wish.id}" hidden>
+            <label for="name">Navn:</label>
+            <input id="name" type="text" name="name" th:value="${wish.name}" required/>
+            <label for="desc">Beskrivelse:</label>
+            <textarea id="desc" name="desc" rows="5" cols="25" th:value="${wish.desc}" th:text="${wish.desc}"></textarea>
+            <label for="listId" hidden></label>
+            <input id="listId" type="number" name="listId" th:value="${wish.listId}" hidden>
+            <label for="price">Pris:</label>
+            <input id="price" type="number" name="price" th:value="${wish.price}">
+            <label for="link">Link:</label>
+            <input id="link" type="url" name="link" th:value="${wish.link}">
+            <label for="image">Billedelink:</label>
+            <input id="image" type="url" name="image" th:value="${wish.image}">
+            <label for="isPriority">Er det et særligt prioriteret ønske?</label>
+            <input id="isPriority" type="checkbox" name="isPriority" th:field="${wish.isPriority}">
+        </div>
+        <br>
+        <label for="submit"></label>
+        <button id="submit" type="submit">Opdater ønske</button>
+    </form>
+</main>
+
 </body>
 </html>

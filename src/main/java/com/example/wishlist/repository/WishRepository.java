@@ -127,4 +127,13 @@ public class WishRepository {
                 wish.getIsPriority(),
                 wish.getId());
     }
+
+    public String findWishListNameById(int wishlistId){
+        String sql = """
+                SELECT name FROM list
+                WHERE id = ?
+                """;
+
+        return jdbcTemplate.queryForObject(sql, String.class, wishlistId);
+    }
 }

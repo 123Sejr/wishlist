@@ -84,4 +84,8 @@ public class WishService {
     public void editWish(Wish wish){
         repo.editWish(wish);
     }
+
+    public String findWishListNameById(int wishlistId){
+        return repo.findWishListNameById(wishlistId);
+    }
 }

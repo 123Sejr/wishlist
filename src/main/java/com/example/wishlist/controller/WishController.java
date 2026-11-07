@@ -28,6 +28,8 @@ public class WishController {
     @GetMapping("{wishlistId}/create-wish")
     public String createWish(Model model, @PathVariable int wishlistId){
         model.addAttribute("wishlistId", wishlistId);
+        String wishlistName = service.findWishListNameById(wishlistId);
+        model.addAttribute("wishlistName", wishlistName);
         return "create-wish";
     }
 
@@ -66,6 +68,8 @@ public class WishController {
         Wish wish = service.getWishById(wishId);
         model.addAttribute(wish);
         model.addAttribute(wishlistId);
+        String wishlistName = service.findWishListNameById(wishlistId);
+        model.addAttribute("wishlistName", wishlistName);
         return "edit-wish";
     }
 
