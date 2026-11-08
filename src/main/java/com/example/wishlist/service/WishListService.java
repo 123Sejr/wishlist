@@ -41,6 +41,10 @@ public class WishListService {
         return wishlist;
     }
 
+    public void editWishlistName(Wishlist wishlist) {
+        repo.editWishlistName(wishlist);
+    }
+
     public void deleteWishlist(int wishlistId) {
         repo.deleteWishlist(wishlistId);
     }

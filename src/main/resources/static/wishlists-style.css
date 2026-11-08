@@ -1,9 +1,21 @@
 main {
     display: grid;
     grid-template-areas:
+        "name name"
         "sidebar content";
     grid-template-columns: auto 1fr;
     max-width: 100vw;
+}
+
+.wishlist-name {
+    grid-area: name;
+    margin-left: auto;
+    margin-right: auto;
+
+    h2 {
+        display: inline;
+        text-align: center;
+    }
 }
 
 table {
