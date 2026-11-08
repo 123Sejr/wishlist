@@ -54,6 +54,26 @@ public class WishListRepository {
         return jdbcTemplate.queryForObject(sql, new WishlistRowMapper(), wishlistId);
     }
 
+    //Omdøber en ønskelistes navn
+    public void editWishlistName(Wishlist wishlist) {
+        String sql = """
+                UPDATE list 
+                SET name = ?
+                WHERE id = ?
+                """;
+
+        jdbcTemplate.update(connection -> {
+                    PreparedStatement ps = connection.prepareStatement(sql);
+                    ps.setString(1, wishlist.getName());
+                    ps.setInt(2, wishlist.getId());
+
+                    return ps;
+        });
+
+    }
+
+
+
 
     //Sletter en liste, samt dens ønsker, ud fra listens id.
     public void deleteWishlist(int wishlistId) {
