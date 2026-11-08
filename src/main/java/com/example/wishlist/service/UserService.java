@@ -53,4 +53,7 @@ public class UserService {
     public void deleteUser(int id) {
         repo.deleteUser(id);
     }
+
+    public void editUser(User user) {
+        repo.editUser(user);}
 }
