@@ -4,6 +4,7 @@ import com.example.wishlist.model.User;
 import com.example.wishlist.model.UserRowMapper;
 import com.example.wishlist.model.Wishlist;
 import com.example.wishlist.model.WishlistRowMapper;
+import org.springframework.boot.autoconfigure.service.connection.ConnectionDetails;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -13,10 +14,12 @@ import java.util.List;
 @Repository
 public class UserRepository {
     private final JdbcTemplate jdbcTemplate;
+    private final ConnectionDetails connectionDetails;
     private WishListRepository wishListRepository;
 
-    public UserRepository(JdbcTemplate jdbcTemplate) {
+    public UserRepository(JdbcTemplate jdbcTemplate, ConnectionDetails connectionDetails) {
         this.jdbcTemplate = jdbcTemplate;
+        this.connectionDetails = connectionDetails;
     }
 
     public void addUser(User user) {
@@ -75,6 +78,28 @@ public class UserRepository {
         } else {
             System.out.println("Ingen bruger med det id.");
         }
+
+    }
+
+    public void editUser(User user) {
+
+        String sql = """
+                UPDATE user
+                SET name = ?
+                WHERE id = ?
+                """;
+
+        //jdbcTemplate.update(sql, user.getName(), user.getId());
+
+        jdbcTemplate.update(connection -> {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, user.getName());
+            ps.setInt(2, user.getId());
+
+            return ps;
+        });
+
+
 
     }
 

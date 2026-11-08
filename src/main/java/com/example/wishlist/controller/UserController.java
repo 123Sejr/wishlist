@@ -5,6 +5,7 @@ import com.example.wishlist.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -49,5 +50,22 @@ public class UserController {
         return "delete-user";
     }
 
+    @GetMapping("/{id}/edit-user")
+    public String editUser(@PathVariable int id, Model model) {
+        User user = service.findUserById(id);
+        model.addAttribute("user", user);
+        return "edit-user";
+    }
+
+
+    @PostMapping("/update-user")
+    public String updateUser(Model model, @ModelAttribute("user") User user) {
+        service.editUser(user);
+        model.addAttribute("user", user);
+        return "update-user";
+    }
+
+
+
 }
-//this is just a test to see if Qodana is working
+
