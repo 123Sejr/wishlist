@@ -17,10 +17,10 @@ Planlagte:
 - MySQL
 
 ## ER Model 
-![ER model](diagrams/ERmodel.png)
+![ER model](diagrams/ERmodel_2.png)
 
 ## Klassediagram
-![Klassediagram](diagrams/klassediagram.png)
+![Klassediagram](diagrams/klassediagram_final.png)
 
 ## Contributing
 Se [her](CONTRIBUTING.md)
