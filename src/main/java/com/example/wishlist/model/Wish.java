@@ -1,14 +1,14 @@
 package com.example.wishlist.model;
 
 public class Wish {
-    int id;
-    String name;
-    String desc;
-    int listId;
-    Float price;
-    String link;
-    String image;
-    boolean isPriority;
+    private int id;
+    private String name;
+    private String desc;
+    private int listId;
+    private Float price;
+    private String link;
+    private String image;
+    private boolean isPriority;
 
     // Tom constructor til Spring
     public Wish(){}
