@@ -29,14 +29,9 @@ table {
         max-width: 50ch;
         padding-left: 0.5em;
         padding-right: 0.5em;
-    }
-}
 
-.container {
-    grid-area: sidebar;
-
-    li
-    {
-        list-style: none;
+        img {
+            align-self: center;
+        }
     }
 }

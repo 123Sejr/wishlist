@@ -1,9 +1,12 @@
 :root, body {
     margin: 0;
+    font-family: "Poppins", sans-serif;
+    color: indigo;
 }
 
 main {
     margin: auto;
+    padding: 1.5em;
 
     p, h1, h2 {
         text-align: center;
@@ -23,11 +26,21 @@ header {
 
 button, form {
     text-align: center;
+    margin-bottom: 1em;
+    margin-top: 1em;
 }
 
-p, h1, h2, h3, span, a, input, textarea, table, label, input, select, button {
+label {
+    margin-top: 1em;
+    font-weight: bold;
+}
+
+input, textarea {
+    border: cornflowerblue solid;
     font-family: "Poppins", sans-serif;
     color: indigo;
+    padding: 8px;
+
 }
 
 /*Giver hver anden table row (dem der er lige numre) en baggrund med lav opacity*/
@@ -35,24 +48,30 @@ tr:nth-child(even){
     background-color: rgba(0 0 0 / 0.1);
 }
 
+/*Fjerner hvide grænser mellem celler */
 table {
     border-collapse: collapse;
 }
 
-h1 {
+/*h1 {
     font-size: 28px;
+}*/
+
+.delete-button {
+    background-color: #ee1133;
+    color: white;
 }
 
-input {
-    padding: 8px;
-    border: 1px solid indigo;
-}
+.sidebar {
+    grid-area: sidebar;
 
-.form-button {
-    display: inline-block;
-    padding: 8px 12px;
-    background-color: lightcyan;
-    border: 1px solid indigo;
-    text-decoration: none;
-    color: black;
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    li
+    {
+        list-style: none;
+    }
 }

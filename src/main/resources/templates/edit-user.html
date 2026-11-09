@@ -3,25 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/common.css}">
+    <link rel="stylesheet" th:href="@{/simple-grid.css}">
     <title>Rediger burger</title>
 </head>
 <body>
-<form th:action="@{/update-user}"
-        th:object="${user}"
-        method="post">
-    <label for="id"></label>
-    <input id="id" type="number" th:field="*{id}" hidden="hidden">
-    <label for="name">Dit nyt navn</label><br>
-    <input id="name" type="text" th:field="*{name}" required>
-    <br>
-    <button type="submit">Bekræft nyt navn</button>
-</form>
-
-<form th:action="@{/{userId}/delete-user(userId=${user.id})}"
-      method="post">
-    <button type="submit">Slet brugeren</button>
-</form>
-
-
+<header>1, 2, 3, Ønskeliste!</header>
+<main>
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a th:href="@{/show-wishlists(userId=${user.id})}">Tilbage til ønskerne</a>
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+        <form th:action="@{/update-user}"
+              th:object="${user}"
+              method="post">
+            <label for="id"></label>
+            <input id="id" type="number" th:field="*{id}" hidden="hidden">
+            <label for="name">Dit nyt navn</label><br>
+            <input id="name" type="text" th:field="*{name}" required>
+            <br>
+            <button type="submit">Bekræft nyt navn</button>
+        </form>
+        <form th:action="@{/{userId}/delete-user(userId=${user.id})}"
+              method="post">
+            <button class="delete-button" type="submit">Slet brugeren</button>
+        </form>
+    </div>
+</main>
 </body>
 </html>

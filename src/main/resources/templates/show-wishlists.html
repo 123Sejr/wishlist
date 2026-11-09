@@ -6,17 +6,17 @@
     <link rel="stylesheet" th:href="@{/wishlists-style.css}">
     <title>Wishlists</title>
 </head>
+<body>
 <header>
     <h1>1, 2, 3, Ønskeliste!</h1>
 </header>
-<body>
 <main>
-    <ul class="container">
+    <ul class="sidebar">
         <li>
             <a th:href="@{/{userId}/createWishlist(userId=${userId})}">Lav ny ønskeliste</a>
         </li>
         <li>
-            <a th:href="@{/{userId}/edit-user(userId=${userId})}">Ændr brugernavn</a>
+            <a th:href="@{/{userId}/edit-user(userId=${userId})}">Rediger bruger</a>
         </li>
         <li>
             <a th:href="@{/}">Tilbage</a>
@@ -35,18 +35,20 @@
         </tr>
         <tr th:each="wishlist : ${wishlists}">
             <td th:text="${wishlist.id}"></td>
-            <td th:text="${wishlist.name}"></td>
-            <td><a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlist.id})}">
-                <!--Endpointet der viser ønskerne på den valgte liste-->
-                <button type="button">Se ønskeliste</button>
-            </a></td>
-            <!--<td><a th:href="@{}"> Endpointet der giver lov til at redigere navnet på listen
-                <button type="button">Rediger navn</button>
-            </a></td>-->
+            <td>
+                <a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlist.id})}">
+                    <p th:text="${wishlist.name}"></p>
+                </a>
+            </td>
+            <td>
+                <a th:href="@{/{wishlistId}/edit-wishlist-name(wishlistId=${wishlist.id})}">
+                    <button type="button">Omdøb</button>
+                </a>
+            </td>
             <td>
                 <form th:action="@{/{wishlistId}/delete-list(wishlistId=${wishlist.id})}"
                     method="post"> <!--Endpointet der sletter en hel liste-->
-                    <button type="submit">Slet</button>
+                    <button class="delete-button" type="submit">Slet</button>
                 </form>
             </td>
         </tr>

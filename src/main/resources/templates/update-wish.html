@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/common.css}">
     <title th:text="${wish.name}"> opdateret</title>
 </head>
 <body>
-<div class="confirmation-box">
+<header>1, 2, 3, Ønskeliste!</header>
+<main>
     <h2>Ønsket er nu ændret 😎</h2>
     <a th:href="@{/{wishlistId}/show-wish/{wishId}(wishlistId=${wish.listId}, wishId=${wish.id})}">Tilbage til ønskeliste</a>
-</div>
+</main>
 </body>
 </html>

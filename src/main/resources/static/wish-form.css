@@ -4,14 +4,6 @@
     margin: auto;
     max-width: 75ch;
 
-    label {
-        margin-top: 1em;
-        font-weight: bold;
-    }
-
-    input, textarea {
-        border: cornflowerblue solid;
-    }
 }
 
 main {

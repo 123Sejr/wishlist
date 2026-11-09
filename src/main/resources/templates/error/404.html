@@ -2,14 +2,18 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/common.css}">
     <title>404</title>
 </head>
 <body>
-<h1>Fejl</h1>
-<p th:text="${status}"></p>
-<br>
-<p th:text="${error}"></p>
-<br>
-<p th:text="${message}"></p>
+<header>1, 2, 3, Ønskeliste!</header>
+<main>
+    <h1>Fejl</h1>
+    <p th:text="${status}"></p>
+    <br>
+    <p th:text="${error}"></p>
+    <br>
+    <p th:text="${message}"></p>
+</main>
 </body>
 </html>

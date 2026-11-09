@@ -1,25 +1,28 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/common.css}">
     <title>Delete wish</title>
 </head>
+<body>
 <header>
     <h1>1, 2, 3, Ønskeliste!</h1>
 </header>
-<body>
-
-<div class="confirmation-box" align="center">
-    <h2>Ønsket er slettet</h2>
-    <span>Ønsket "</span>
-    <span th:text="${name}"></span>
-    <span>" er blevet slettet fra listen.</span>
-    <br />
-    <a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlistId})}">Tilbage til ønskerne</a>
-</div>
-
+<main>
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlistId})}">Tilbage til ønskerne</a>
+            </li>
+        </ul>
+    </div>
+    <div class="content" align="center">
+        <h2>Ønsket er slettet</h2>
+        <span>Ønsket "</span>
+        <span th:text="${name}"></span>
+        <span>" er blevet slettet fra listen.</span>
+    </div>
+</main>
 </body>
 </html>

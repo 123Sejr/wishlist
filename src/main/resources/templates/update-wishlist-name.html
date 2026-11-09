@@ -5,18 +5,16 @@
     <link rel="stylesheet" th:href="@{/common.css}">
     <title>Oplysninger gemt</title>
 </head>
+<body>
 <header>
     <h1>1, 2, 3, Ønskeliste!</h1>
 </header>
-<body>
-
-<div class="confirmation" align="center">
+<main>
     <h1>Nyt navn gemt!</h1>
     <p>Navnet på ønskelisten er ændret til:</p>
     <p th:text="${wishlist.name}"></p>
     <br />
     <a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlist.id})}">Tilbage til oversigt</a>
-</div>
-
+</main>
 </body>
 </html>

@@ -10,10 +10,10 @@
 <div class="sidebar">
     <ul>
         <li>
-            <a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlistId})}">Tilbage til ønskeliste</a>
+            <a th:href="@{/{wishlistId}/edit-wish/{wishId}(wishlistId=${wishlistId}, wishId=${wishId})}">Rediger ønske</a>
         </li>
         <li>
-            <a th:href="@{/{wishlistId}/edit-wish/{wishId}(wishlistId=${wishlistId}, wishId=${wishId})}">Rediger ønske</a>
+            <a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlistId})}">Tilbage til ønskeliste</a>
         </li>
     </ul>
 </div>
@@ -22,7 +22,7 @@
     <h2>
         <span th:text="${wish.name}"></span>
         <span th:if="${wish.isPriority == true}">
-            <img th:src="@{/images/priority-placeholder.png}" width="26" title="Prioriteret ønske" alt="- Prioriteret ønske">
+            <img th:src="@{/images/prio_star.png}" width="26" title="Prioriteret ønske" alt="- Prioriteret ønske">
         </span>
     </h2>
 </div>

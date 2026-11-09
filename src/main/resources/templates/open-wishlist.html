@@ -11,19 +11,18 @@
 </header>
 <body>
 <main>
-
     <div class="wishlist-name">
         <h2 th:text="${wishlistName}"></h2>
+        <span>  </span>
         <span>
             <a th:href="@{/{wishlistId}/edit-wishlist-name(wishlistId=${wishlistId})}">Omdøb</a>
         </span>
     </div>
-
-    <div class="container">
+    <div class="sidebar">
         <ul>
             <li>
                 <a th:href="@{/{wishlistId}/create-wish(wishlistId=${wishlistId})}">
-                    <button type="button">Opret nyt ønske</button>
+                    Opret nyt ønske
                 </a>
             </li>
             <li>
@@ -60,13 +59,13 @@
             <td><a th:href="${wish.link}">Link</a></td>
             <td><img th:src="${wish.image}" height="100" alt=""></td>
             <td>
-                <img  th:if="${wish.isPriority == true}" th:src="@{/images/priority-placeholder.png}" width="26"
+                <img  th:if="${wish.isPriority == true}" th:src="@{/images/prio_star.png}" width="55"
                      title="Prioriteret ønske" alt="- Prioriteret ønske">
             </td>
             <td>
                 <form th:action="@{/{wishId}/delete-wish(wishId=${wish.id})}"
                       method="post">
-                    <button type="submit">Slet</button>
+                    <button class="delete-button" type="submit">Slet</button>
                 </form>
             </td>
         </tr>
