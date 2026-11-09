@@ -5,16 +5,20 @@
     <link rel="stylesheet" th:href="@{/common.css}">
     <title>Opret ny ønskeliste</title>
 </head>
+<header>
+    <h1>1, 2, 3, Ønskeliste!</h1>
+</header>
 <body>
-<div class="createListBox">
+<div class="createListBox" align="center">
     <h1>Ny ønskeliste</h1>
     <form method="post" th:action="@{/{userId}/saveWishlist(userId=${userId})}">
         <label for="name">Navn:</label>
         <input id="name" type="text" name="name" required>
         <label for="submit"></label>
         <button id="submit" type="submit">Gem</button>
+        <br />
+        <a th:href="@{/show-wishlists(userId=${userId})}">Fortryd</a>
     </form>
 </div>
-<a th:href="@{/show-wishlists(userId=${userId})}">Tilbage</a>
 </body>
 </html>
