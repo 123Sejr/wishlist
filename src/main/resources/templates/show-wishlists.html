@@ -1,18 +1,27 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Wishlists</title> <!--Indsæt brugerens navn i titlen. Tilføj det fra controlleren-->
+    <link rel="stylesheet" th:href="@{/common.css}">
+    <link rel="stylesheet" th:href="@{/wishlists-style.css}">
+    <title>Wishlists</title>
 </head>
 <body>
-
-<div class="container">
-    <p>
-        <a class="button" th:href="@{/{userId}/createWishlist(userId=${userId})}">Lav ny ønskeliste</a>
-    </p>
-
+<header>
+    <h1>1, 2, 3, Ønskeliste!</h1>
+</header>
+<main>
+    <ul class="sidebar">
+        <li>
+            <a th:href="@{/{userId}/createWishlist(userId=${userId})}">Lav ny ønskeliste</a>
+        </li>
+        <li>
+            <a th:href="@{/{userId}/edit-user(userId=${userId})}">Rediger bruger</a>
+        </li>
+        <li>
+            <a th:href="@{/}">Tilbage</a>
+        </li>
+    </ul>
     <table>
         <thead>
         <tr>
@@ -26,24 +35,26 @@
         </tr>
         <tr th:each="wishlist : ${wishlists}">
             <td th:text="${wishlist.id}"></td>
-            <td th:text="${wishlist.name}"></td>
-            <!--<td><a th:href="@{}"> Endpointet der viser ønskerne på den valgte liste
-                <button type="button">Se ønskeliste</button>-->
-            <!--</a></td>
-            <td><a th:href="@{}"> Endpointet der giver lov til at redigere navnet på listen
-                <button type="button">Rediger navn</button>
-            </a></td>-->
-            <!--<td>
-                <form th:action="@{}"
-                    method="post"> Endpointet til slet
-                    <button type="submit">Slet</button>
+            <td>
+                <a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlist.id})}">
+                    <p th:text="${wishlist.name}"></p>
+                </a>
+            </td>
+            <td>
+                <a th:href="@{/{wishlistId}/edit-wishlist-name(wishlistId=${wishlist.id})}">
+                    <button type="button">Omdøb</button>
+                </a>
+            </td>
+            <td>
+                <form th:action="@{/{wishlistId}/delete-list(wishlistId=${wishlist.id})}"
+                    method="post"> <!--Endpointet der sletter en hel liste-->
+                    <button class="delete-button" type="submit">Slet</button>
                 </form>
-            </td>-->
+            </td>
         </tr>
         </tbody>
     </table>
 
-</div>
-
+</main>
 </body>
 </html>

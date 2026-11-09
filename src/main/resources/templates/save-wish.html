@@ -2,9 +2,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/common.css}">
+    <title>Ønske tilføjet</title>
 </head>
 <body>
-
+<header>1, 2, 3, Ønskeliste!</header>
+<div class="confirmation-box" align="center">
+    <h2>Ønsket er nu tilføjet 😎</h2>
+    <a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlistId})}">Tilbage til ønskeliste</a>
+</div>
 </body>
 </html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/common.css}">
+    <link rel="stylesheet" th:href="@{/wishlists-style.css}">
+    <title>Wishlist's wishes</title>
+</head>
+<header>
+    <h1>1, 2, 3, Ønskeliste!</h1>
+</header>
+<body>
+<main>
+    <div class="wishlist-name">
+        <h2 th:text="${wishlistName}"></h2>
+        <span>  </span>
+        <span>
+            <a th:href="@{/{wishlistId}/edit-wishlist-name(wishlistId=${wishlistId})}">Omdøb</a>
+        </span>
+    </div>
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a th:href="@{/{wishlistId}/create-wish(wishlistId=${wishlistId})}">
+                    Opret nyt ønske
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/show-wishlists(userId=${userId})}">Tilbage</a>
+            </li>
+        </ul>
+
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Navn</th>
+            <th>Beskrivelse</th>
+            <th>Pris</th>
+            <th>Link</th>
+            <th>Billede</th>
+            <th>Prioteret?</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${#lists.isEmpty(wishes)}">
+            <td colspan="4">Ingen ønsker er oprettet</td>
+        </tr>
+        <tr th:each="wish : ${wishes}">
+            <td th:text="${wish.id}"></td>
+            <td>
+                <a th:href="@{/{wishlistId}/show-wish/{wishId}(wishlistId=${wishlistId}, wishId=${wish.id})}">
+                    <p th:text="${wish.name}"></p>
+                </a>
+            </td>
+            <td th:text="${wish.desc}"></td>
+            <td><span th:unless="${wish.price == 0.0}" th:text="${wish.price}"></span></td>
+            <td><a th:href="${wish.link}">Link</a></td>
+            <td><img th:src="${wish.image}" height="100" alt=""></td>
+            <td>
+                <img  th:if="${wish.isPriority == true}" th:src="@{/images/prio_star.png}" width="55"
+                     title="Prioriteret ønske" alt="- Prioriteret ønske">
+            </td>
+            <td>
+                <form th:action="@{/{wishId}/delete-wish(wishId=${wish.id})}"
+                      method="post">
+                    <button class="delete-button" type="submit">Slet</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

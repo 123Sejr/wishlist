@@ -18,7 +18,7 @@ VALUES
 
 -- Test til wish tabel
 INSERT INTO wish (
-    id, list_id, name, description, price, link, image, priority 
+    id, list_id, name, description, price, link, image, isPriority
 )
 VALUES (
     1,

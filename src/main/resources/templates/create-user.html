@@ -1,50 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/common.css}">
+    <link rel="stylesheet" th:href="@{/simple-grid.css}">
     <title>Tilføj bruger</title>
-    <style>
-        h1 {
-            color: darkmagenta;
-            font-size: 28px;
-        }
-        body {
-            background-color: lightgray;
-            font-family: Arial, sans-serif;
-        }
-
-        input {
-            padding: 8px;
-            border: 1px solid gray;
-        }
-
-        button {
-            padding: 8px;
-            border: 1px solid gray;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 8px 12px;
-            background-color: lightblue;
-            border: 1px solid gray;
-            text-decoration: none;
-            color: black;
-        }
-    </style>
 </head>
-
 <body>
-<h1>Her kan man oprette en bruger</h1>
-<form action="/create-user" method="post">
-    <label>Dit navn</label><br>
-    <input type="text" name="name" required>
-    <br>
-    <button type="submit">Opret</button>
-</form>
-<br>
-<a href="/" class="button">Tilbage til forsiden</a>
-
-
+<header>
+    <h1>1, 2, 3, Ønskeliste!</h1>
+</header>
+<main>
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a href="/" class="form-button">Tilbage til forsiden</a>
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>Her kan man oprette en bruger</h1>
+        <form action="/create-user" method="post">
+            <label for="name">Dit navn</label><br>
+            <input id="name" type="text" name="name" required>
+            <br>
+            <button type="submit">Opret</button>
+        </form>
+    </div>
+</main>
 </body>
 </html>

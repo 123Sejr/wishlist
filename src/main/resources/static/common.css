@@ -1,0 +1,77 @@
+:root, body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    color: indigo;
+}
+
+main {
+    margin: auto;
+    padding: 1.5em;
+
+    p, h1, h2 {
+        text-align: center;
+    }
+}
+
+header {
+    background-color: indigo;
+    padding: 20px;
+    margin-bottom: 1.5em;
+
+    h1 {
+        color: white;
+        text-align: center;
+    }
+}
+
+button, form {
+    text-align: center;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+label {
+    margin-top: 1em;
+    font-weight: bold;
+}
+
+input, textarea {
+    border: cornflowerblue solid;
+    font-family: "Poppins", sans-serif;
+    color: indigo;
+    padding: 8px;
+
+}
+
+/*Giver hver anden table row (dem der er lige numre) en baggrund med lav opacity*/
+tr:nth-child(even){
+    background-color: rgba(0 0 0 / 0.1);
+}
+
+/*Fjerner hvide grænser mellem celler */
+table {
+    border-collapse: collapse;
+}
+
+/*h1 {
+    font-size: 28px;
+}*/
+
+.delete-button {
+    background-color: #ee1133;
+    color: white;
+}
+
+.sidebar {
+    grid-area: sidebar;
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    li
+    {
+        list-style: none;
+    }
+}

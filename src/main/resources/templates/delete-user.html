@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/common.css}">
+    <link rel="stylesheet" th:href="@{/simple-grid.css}">
+    <title>Delete user</title>
+</head>
+<body>
+<header>
+    <h1>1, 2, 3, Ønskeliste!</h1>
+</header>
+<main>
+<div class="sidebar">
+    <ul>
+        <li>
+            <a th:href="@{/}">Tilbage til start</a>
+        </li>
+    </ul>
+</div>
+<div class="content">
+    <h2>Brugeren er slettet</h2>
+    <span>Brugeren "'</span>
+    <span th:text="${name}"></span>
+    <span>'" er blevet slettet.</span>
+</div>
+</main>
+</body>
+</html>
