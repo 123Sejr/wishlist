@@ -2,33 +2,44 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/common.css}">
+    <link rel="stylesheet" th:href="@{/wish-form.css}">
+    <title>Tilføj ønske</title>
 </head>
 <body>
-<form method="post" th:action="@{{wishlistId}/create-wish(wishlistID=${wishlistID})}">
-    <p>Du er ved at tilføje et ønske til ønskelisten</p>
-    <label for="listId"></label>
-    <input id="listId" type="number" th:text="${wishlistID}" readonly>
-    <label for="name">Navn:</label>
-    <input id="name" type="text"  readonly/>
-    <br/>
-    <label for="desc">Beskrivelse:</label>
-    <textarea id="desc" rows="5" cols="25"></textarea>
-    <br/>
-    <label for="price"></label>
-    <input id="price" type="number">
-    <br/>
-    <label for="link"></label>
-    <input id="link" type="url">
-    <br/>
-    <label for="image"></label>
-    <input id="image" type="url">
-    <br/>
-    <label for="isPriority"></label>
-    <input id="isPriority" type="checkbox">
-    <br/>
-    <label for="submit"></label>
-    <input id="submit" type="submit">
-</form>
+<header>
+    <h1>1, 2, 3, Ønskeliste!</h1>
+</header>
+<main>
+    <div>
+        <a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlistId})}">Tilbage til ønskeliste</a>
+    </div>
+    <form method="post" th:action="@{/{wishlistId}/save-wish(wishlistId=${wishlistId})}">
+        <div>
+            <span>Du er ved at tilføje et ønske til ønskelisten </span>
+            <span th:text="${wishlistName}"></span>
+            <span>.</span>
+        </div>
+        <div class="field-container">
+            <label for="listId"></label>
+            <input id="listId" type="number" name="listId" th:value="${wishlistId}" hidden>
+            <label for="name">Navn:</label>
+            <input id="name" type="text" name="name" required/>
+            <label for="desc">Beskrivelse:</label>
+            <textarea id="desc" name="desc" rows="5" cols="25"></textarea>
+            <label for="price">Pris:</label>
+            <input id="price" type="number" name="price">
+            <label for="link">Link:</label>
+            <input id="link" type="url" name="link">
+            <label for="image">Billedelink:</label>
+            <input id="image" type="url" name="image">
+            <label for="isPriority">Er det et særligt prioriteret ønske?</label>
+            <input id="isPriority" type="checkbox" name="isPriority">
+        </div>
+        <br>
+        <label for="submit"></label>
+        <button id="submit" type="submit">Tilføj ønske</button>
+    </form>
+</main>
 </body>
 </html>

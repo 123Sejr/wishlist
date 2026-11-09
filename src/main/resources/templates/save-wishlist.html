@@ -4,15 +4,16 @@
 >
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/common.css}">
     <title>Ønskeliste gemt</title>
 </head>
 <body>
-
+<header>
+    <h1>1, 2, 3, Ønskeliste!</h1>
+</header>
 <div class="confirmation-box" align="center">
     <h2>Ønskelisten er nu gemt</h2>
-    <a th:href="@{/{userId}(userId=${user_id})}">
-        <button type="button">Tilbage til oversigt</button>
-    </a>
+    <a th:href="@{/show-wishlists(userId=${userId})}">Tilbage</a>
 </div>
 
 </body>

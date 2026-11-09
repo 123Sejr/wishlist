@@ -1,0 +1,37 @@
+main {
+    display: grid;
+    grid-template-areas:
+        "name name"
+        "sidebar content";
+    grid-template-columns: auto 1fr;
+    max-width: 100vw;
+}
+
+.wishlist-name {
+    grid-area: name;
+    margin-left: auto;
+    margin-right: auto;
+
+    h2 {
+        display: inline;
+        text-align: center;
+    }
+}
+
+table {
+    grid-area: content;
+    margin-left: auto;
+    margin-right: auto;
+
+    tr, td, th {
+        text-align: left;
+        min-width: 3em;
+        max-width: 50ch;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+
+        img {
+            align-self: center;
+        }
+    }
+}

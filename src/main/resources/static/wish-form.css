@@ -1,0 +1,11 @@
+.field-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 75ch;
+
+}
+
+main {
+    padding: 1.5em;
+}

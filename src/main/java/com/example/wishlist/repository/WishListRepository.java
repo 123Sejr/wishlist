@@ -27,7 +27,7 @@ public class WishListRepository {
     }
 
 
-
+    //Opretter en ny ønskeliste, tilknyttet et bestemt bruger id.
     public void createWishlist(Wishlist wishlist, int user_id) {
         String sql = """
                 INSERT INTO list (name, user_id)
@@ -42,5 +42,48 @@ public class WishListRepository {
             return ps;
         });
 
+    }
+
+
+    //Finder en specifikt liste ud fra dens id.
+    public Wishlist findWishListById(int wishlistId) {
+        String sql = """
+                SELECT * FROM list
+                WHERE id = ?
+                """;
+        return jdbcTemplate.queryForObject(sql, new WishlistRowMapper(), wishlistId);
+    }
+
+    //Omdøber en ønskelistes navn
+    public void editWishlistName(Wishlist wishlist) {
+        String sql = """
+                UPDATE list
+                SET name = ?
+                WHERE id = ?
+                """;
+
+        jdbcTemplate.update(connection -> {
+                    PreparedStatement ps = connection.prepareStatement(sql);
+                    ps.setString(1, wishlist.getName());
+                    ps.setInt(2, wishlist.getId());
+
+                    return ps;
+        });
+
+    }
+
+
+
+
+    //Sletter en liste, samt dens ønsker, ud fra listens id.
+    public void deleteWishlist(int wishlistId) {
+        Wishlist wishlist = findWishListById(wishlistId);
+
+        if(wishlist != null) {
+            jdbcTemplate.update("DELETE FROM wish WHERE list_id = ?", wishlistId);
+            jdbcTemplate.update("DELETE FROM list WHERE id = ?", wishlistId);
+        } else {
+            System.out.println("Ingen liste med det id.");
+        }
     }
 }

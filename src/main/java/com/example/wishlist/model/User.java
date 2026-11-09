@@ -1,8 +1,8 @@
 package com.example.wishlist.model;
 
 public class User {
-    int id;
-    String name;
+    private int id;
+    private String name;
 
     // Tom constructor til spring
     public User(){}

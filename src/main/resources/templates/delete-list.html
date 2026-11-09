@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/common.css}">
+    <title>Slet ønskeliste</title>
+</head>
+<header>
+    <h1>1, 2, 3, Ønskeliste!</h1>
+</header>
+<body>
+<main>
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a th:href="@{/show-wishlists(userId=${userId})}">Tilbage til ønskelisterne</a>
+            </li>
+        </ul>
+    </div>
+    <div class="content" align="center">
+        <h2>Ønskelisten er slettet</h2>
+        <span>Listen "</span>
+        <span th:text="${name}"></span>
+        <span>" er blevet slettet.</span>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/common.css}">
+    <link rel="stylesheet" th:href="@{/wish.css}">
+    <title th:text="${wish.name}"></title>
+</head>
+<body class="grid">
+<div class="sidebar">
+    <ul>
+        <li>
+            <a th:href="@{/{wishlistId}/edit-wish/{wishId}(wishlistId=${wishlistId}, wishId=${wishId})}">Rediger ønske</a>
+        </li>
+        <li>
+            <a th:href="@{/{wishlistId}/open-wishlist(wishlistId=${wishlistId})}">Tilbage til ønskeliste</a>
+        </li>
+    </ul>
+</div>
+<main>
+<div class="title">
+    <h2>
+        <span th:text="${wish.name}"></span>
+        <span th:if="${wish.isPriority == true}">
+            <img th:src="@{/images/prio_star.png}" width="26" title="Prioriteret ønske" alt="- Prioriteret ønske">
+        </span>
+    </h2>
+</div>
+<img class="image" th:src="${wish.image}" alt="">
+<div class="content">
+    <div class="param-box">
+        <h3>Beskrivelse:</h3>
+        <span th:text="${wish.desc}"></span>
+    </div>
+    <div class="param-box" th:unless="${wish.price == 0.0}">
+        <h3>Pris: </h3>
+        <span th:text="${wish.price}"> kr</span>
+    </div>
+    <div class="param-box">
+        <p>Link til produkt kan findes</p>
+        <a th:href="${wish.link}">her</a>
+    </div>
+</div>
+</main>
+</body>
+</html>

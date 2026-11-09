@@ -1,20 +1,20 @@
 package com.example.wishlist.model;
 
 public class Wish {
-    int id;
-    String name;
-    String desc;
-    int listId;
-    float price;
-    String link;
-    String image;
-    boolean isPriority;
+    private int id;
+    private String name;
+    private String desc;
+    private int listId;
+    private Float price;
+    private String link;
+    private String image;
+    private boolean isPriority;
 
     // Tom constructor til Spring
     public Wish(){}
 
     // Constructor med alt
-    public Wish(int id, String name, String desc, int listId, float price, String link, String image, boolean isPriority) {
+    public Wish(int id, String name, String desc, int listId, Float price, String link, String image, boolean isPriority) {
         this.id = id;
         this.name = name;
         this.desc = desc;
@@ -57,11 +57,11 @@ public class Wish {
         this.desc = desc;
     }
 
-    public float getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 
@@ -81,11 +81,11 @@ public class Wish {
         this.image = image;
     }
 
-    public boolean isPriority() {
+    public boolean getIsPriority() {
         return isPriority;
     }
 
-    public void setPriority(boolean priority) {
+    public void setIsPriority(boolean priority) {
         isPriority = priority;
     }
 
