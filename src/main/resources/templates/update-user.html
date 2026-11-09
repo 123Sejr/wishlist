@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/common.css}">
+    <link rel="stylesheet" th:href="@{/simple-grid.css}">
     <title>Brugernavn ændret</title>
 </head>
 <body>
 <header>1, 2, 3, Ønskeliste!</header>
 <main>
-    <a>Dit navn blev ændret</a>
-    <a th:href="@{/show-wishlists(userId=${user.id})}">Tilbage</a>
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a th:href="@{/show-wishlists(userId=${user.id})}">Tilbage til ønskelister</a>
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+        <a>Dit navn blev ændret</a>
+    </div>
 </main>
 </body>
 </html>

@@ -1,12 +1,9 @@
 package com.example.wishlist.model;
 
-import java.util.ArrayList;
-
 public class Wishlist {
     private int id;
     private String name;
     private int user_id;
-    private ArrayList<String> wishes;
 
     //Tom konstruktør til Spring
     public Wishlist() {
@@ -14,11 +11,10 @@ public class Wishlist {
     }
 
     //Konstruktør med alt
-    public Wishlist(int id, String name, int user_id/*, ArrayList<String> wishes*/) {
+    public Wishlist(int id, String name, int user_id) {
         this.id = id;
         this.name = name;
         this.user_id = user_id;
-        //this.wishes = wishes;
     }
 
     public int getId() {
@@ -45,20 +41,11 @@ public class Wishlist {
         this.user_id = user_id;
     }
 
-    public ArrayList<String> getWishes() {
-        return wishes;
-    }
-
-    public void setWishes(ArrayList<String> wishes) {
-        this.wishes = wishes;
-    }
-
     @Override
     public String toString() {
         return "Wishlist: " +
                 "id = " + id +
                 ", name = " + name +
-                ", userId = " + user_id +
-                ", wishes = " + wishes;
+                ", userId = " + user_id;
     }
 }

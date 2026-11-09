@@ -42,28 +42,6 @@ public class WishRepository {
                 wish.getLink(),
                 wish.getImage(),
                 wish.getIsPriority());
-
-        /* Metoden forneden er *kun* relevant, hvis vi skal bruge det auto genererede id.
-           Så fremt det viser sig vi skal bruge det, kan det kommenteres ind igen og erstatte metoden ovenfor.
-
-           Hvis/Når vi er sikre på, at vi ikke skal bruge id'et, kan alt i denne kommentar rolig slettes.
-
-        KeyHolder keyHolder = new GeneratedKeyHolder();
-
-        jdbcTemplate.update(connection -> {
-                    PreparedStatement ps = connection.prepareStatement(
-                            sql, Statement.RETURN_GENERATED_KEYS
-                    );
-                    ps.setString(1, wish.getName());
-                    ps.setString(2, wish.getDesc());
-                    ps.setFloat(3, wish.getPrice());
-                    ps.setString(4, wish.getLink());
-                    ps.setString(5, wish.getImage());
-                    ps.setBoolean(6, wish.isPriority());
-                    // foreing key wishlist?
-                    return ps;
-                }, keyHolder);
-        */
     }
 
     public List<Wish> getAllWishesByListId(int wishlistId) {

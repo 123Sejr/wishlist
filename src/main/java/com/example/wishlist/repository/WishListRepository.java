@@ -57,7 +57,7 @@ public class WishListRepository {
     //Omdøber en ønskelistes navn
     public void editWishlistName(Wishlist wishlist) {
         String sql = """
-                UPDATE list 
+                UPDATE list
                 SET name = ?
                 WHERE id = ?
                 """;

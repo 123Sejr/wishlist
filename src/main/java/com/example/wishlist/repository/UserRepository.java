@@ -4,7 +4,6 @@ import com.example.wishlist.model.User;
 import com.example.wishlist.model.UserRowMapper;
 import com.example.wishlist.model.Wishlist;
 import com.example.wishlist.model.WishlistRowMapper;
-import org.springframework.boot.autoconfigure.service.connection.ConnectionDetails;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -14,12 +13,10 @@ import java.util.List;
 @Repository
 public class UserRepository {
     private final JdbcTemplate jdbcTemplate;
-    private final ConnectionDetails connectionDetails;
-    private WishListRepository wishListRepository;
 
-    public UserRepository(JdbcTemplate jdbcTemplate, ConnectionDetails connectionDetails) {
+    public UserRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
-        this.connectionDetails = connectionDetails;
+
     }
 
     public void addUser(User user) {
